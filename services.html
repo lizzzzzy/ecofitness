@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+    <html lang="ru">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="" />
+        <meta name="keywords" content="экофитнесс, фитнес, эко, экология, гармония, движение, спорт-зал, спорт, зал, тренировка, упражнение, здоровье, сила, красота, активность, здоровый, жизнь, правильный, питание, санкт-петербург, спб, питер, тело, мышцы, тренировка, диета, мотивация, форма, питание, тренер, гимнастка, реабилитация, тренажёры, аэройога, йога, дыхание, массаж" />
+        <meta name="author" content="" />
+        <title>Ecofitness</title>
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='css/normalize.css' type='text/css'>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+        <link rel="stylesheet" type="text/css" href="css/the-modal.css" media="all">
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.the-modal.js"></script>
+        <script src="js/click.js"></script>
+    </head>
+
+<body>
+         <!--модальное окно заказа звонка-->
+    <div id="form-container">
+        <div id="test-modal" style="display:none" class="modal">
+            <p>Бесплатная консультация</p>
+            <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+            <form id="contact-form" name="contact-form" method="post" action="">
+                <input type="text" placeholder="Имя" name="name" id="name" value="" />
+                <input type="text" placeholder="E-mail (обязательно)" name="email" id="email" value="" />
+                <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone" value="" />
+                <textarea name="message" id="message">
+                    Заказан звонок</textarea>
+                <input type="submit" name="button" id="button" value="Отправить" />
+            </form>
+            <a href="#" class="close">x</a>
+        </div>
+    </div>
+     
+	     <header>
+        <div class="fixed-header "></div>
+        <div class="fixed-navigation">
+            <div class="wrapper clearfix navigation navbar-wrapper">
+                 <a href="index.html" class="logo"><img src="img/head-logo.png" width="237" height="42" alt="ecofitness"></a>
+                <nav class="main-navigation">
+                    <ul>
+                   
+                        <li class="menu-item"><a href="gallery.html">Фотогаллерея</a></li>
+                        <li class="menu-item active"><a href="services.html">Услуги</a></li>
+                        <li class="menu-item"><a href="rates.html">Тарифы</a></li>
+                        <li class="menu-item"><a href="scheme.html">Схема клуба</a></li>
+                        <li class="menu-item"><a href="trainers.html">Тренеры</a></li>
+                        <li class="menu-item"><a href="schuedle.html">Расписание</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="call btn trigger ">Заказать звонок</a>
+            </div>
+        </div>
+    </header>
+    <main>
+	            <section class="services" id="services">
+                <div class="wrapper">
+                    <h2>Услуги</h2>
+                    <div class="service-menu clearfix">
+                        <div class="column-left">
+                            <div class="serv-btn active" data-trigger="1">Индивидуальные тренировки</div>
+                            <div class="serv-btn" data-trigger="2">Фитнес-реабилитация</div>
+                            <div class="serv-btn" data-trigger="3">Услуги диетолога</div>
+                            <div class="serv-btn" data-trigger="4">Косметологические услуги</div>
+                            <div class="serv-btn" data-trigger="5">Аэройога</div>
+                            <div class="serv-btn" data-trigger="6">Бар здорового питания</div>
+                            <div class="serv-btn" data-trigger="7">Групповые занятия</div>
+                            <div class="serv-btn" data-trigger="8">Сауна</div>
+                            <div class="serv-btn" data-trigger="9">Перманентный макияж</div>
+                            <div class="serv-btn" data-trigger="10">Массаж</div>
+                        </div>
+                        <div class="column-right">
+                            <div class="item-card individ block" id="block-1">
+                                <div class="card-title-blue">Фитнес с персональным тренером всегда приносит результат. У нас работают только лучшие. </div>
+                                <p>Процесс работы:</p>
+                                <ul>
+                                    <li>
+                                        <p class="number">1</p> Консультация, тестирование и медицинская диагностика, выявление особенностей физиологии.</li>
+                                    <li>
+                                        <p class="number">2</p>По результатам тестирования тренер разрабатывает персональную программу и график тренировок.</li>
+                                    <li>
+                                        <p class="number">3</p>Ведётся грамотный контроль над выполнением задач и Вашим физическим состоянием.
+                                    </li>
+                                    <li>
+                                        <p class="number">4</p>Формируется система мотивации, каждый тренер ещё и чуткий психолог. Он всегда поможет решить проблемы и будет достижению совместного результата</li>
+                                    <li>
+                                        <p class="number">5</p> Вам постоянно дают знать о результате, который можно оценить и потрогать. Также с их учётом при необходимости корректируется Ваша программа.</li>
+                                </ul>
+                            </div>
+                            <div class="item-card reabilitation block" id="block-2">
+                                <div class="card-title-green"><span>«Kinesis»</span> — уникальная система тренировок, её главная особенность в тщательной диагностике и проведении мышечных тестов, а цель в возвращении и поддержании физического здоровья людей с нарушениями опорно-двигательного аппарата немедикаментозными средствами: физические упражнения и специальный массаж. </div>
+                                <p class="bold-title">Работа разбита на несколько этапов:</p>
+                                <ul>
+                                    <li>
+                                        <p class="number">1</p> Диагностика, сбор анамнеза, проведение мышечного тестирования.</li>
+                                    <li>
+                                        <p class="number">2</p> Уравновешивание мышечных тяг и устранение порочного двигательного стереотипа, 6 недель.</li>
+                                    <li>
+                                        <p class="number">3</p> Закрепление правильного двигательного стереотипа движения, 6 недель.</li>
+                                    <li>
+                                        <p class="number">4</p> Промежуточное мышечное и функциональное тестирование.
+                                    </li>
+                                    <li>
+                                        <p class="number">5</p> Работа, направленная на укрепление мышечного корсета, 6 недель.</li>
+                                    <li>
+                                        <p class="number">6</p> Посещение индивидуальных тренировок в фитнес-клубе для закрепления результата </li>
+                                </ul>
+                            </div>
+                            <div class="item-card diet block" id="block-3">
+                                <div class="card-title-blue"> Услуги диетолога дают возможность освоить азы спортивного или правильно питания для успешного старта в новой сфере занятий. Вы получаете идеально подробное питание на каждый день, которое значительно ускорит достижение намеченных результатов без вреда для здоровья. </div>
+                            </div>
+                            <div class="item-card cosmetic block" id="block-4">
+                                <div class="card-title-green"> Косметологические услуги в нашем кабинете эстетики , не уходя из клуба. Они включают в себя все, начиная от различных чисток и процедур омоложения, заканчивая всевозможными обёртываниями и процедурами по коррекции фигуры</div>
+                            </div>
+                            <div class="item-card yoga block" id="block-5">
+                                <div class="card-title-blue">Аэро Йога - это новое направление в йоге, которое проводят на специальных подвесных гамаках и включает в себя элементы различных направлений йоги, танцев и даже воздушной акробатики, что позволяет достичь гораздо большего эффекта от занятий.</div>
+                            </div>
+                            <div class="item-card bar block" id="block-6">
+                                <div class="card-title-green">Бар здорового питания предоставляет каждому возможность опробовать как классическое спортивное питание, так и совершенно новые, разработанные специально для наших гостей натуральные протеиновые коктейли, а так же перекусить с пользой для организма блюдами, в которых специально подсчитано КБЖУ</div>
+                            </div>
+                            <div class="item-card block" id="block-7">
+
+                            </div>
+                            <div class="item-card block" id="block-8">
+
+                            </div>
+                            <div class="item-card makeup block" id="block-9">
+                                <div class="card-title-blue">Перманентный макияж (татуаж) дает возможность женщине выглядеть в жизни лучше, чем на фото и получать в свой адрес только восторженные отзывы независимо от обстоятельств и времени суток. Как чудесно, едва проснувшись, посмотреться в зеркало и увидеть в нем красивое лицо с безупречным макияжем, подчеркивающим вашу неповторимую индивидуальность. </div>
+                            </div>
+                            <div class="item-card massage block" id="block-10">
+                                <p class="bold-title">Что может быть приятнее, чем расслабляющий массаж после тяжёлой тренировки?</p>
+                                <p class="text">Опытные массажисты порадуют Вас разнообразием репертуара: от восточного, тайского до испанского, аромассажа, балинезийского и гавайского. Также мы предлагаем антицеллюлитную программу и массаж для беременых. </p>
+                                <p class="bold-title">Не знаете, что выбрать? </p>
+                                <p class="text">Приходите, поможем определиться, исходя из Ваших нагрузок и графика тренировок</p>
+                                <div class="card-title-green"> Например, спортивный массаж подойдёт после экстремально тяжёлых тренировок, массажист здесь делает акцент на мышцы, сухожилия и суставы, что помогает не только быстро восстановить силы, но и способствует укреплению мускулатуры.</div>
+                                <div class="card-title-green">Если же Вы избавляетесь от лишнего веса, Вам подойдёт лимфодренажный массаж — он освобождает клетки от продуктов обмена и распада, облегчает работу всех органов и увеличивает обмен веществ, тем самым ускоряя процесс снижения веса.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="#rates" class="btn btn-blue">Узнать о тарифах</a>
+                        <a href="#trainers" class="btn btn-green">Выбрать тренера</a>
+                    </div>
+                </div>
+            </section>
+	   <section class="contacts" id="contacts">
+            <div class="map">
+                <div class="wrapper">
+                    <h2>Мы на карте</h2>
+                </div>
+                <div class="frame-map">
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=di-ziwqjeyVYrWd4_F7Rrqa3a75Vao_B&width=100%&height=700&lang=ru_RU&sourceType=constructor"></script>
+                </div>
+            </div>
+            <div class="wrapper contact-info">
+                <div class="contact-date">
+                    <div class="main-logo"><img src="img/contact-logo.png" width="330" height="210" alt=""></div>
+                    <p><span>Часы работы</span>
+                        <br> 7:00 — 24:00</p>
+                    <p><span>E-mail </span>
+                        <br> ask@ecofitness.su </p>
+                    <p><span>Телефон</span>
+                        <br> +7 812 407 11 88</p>
+                    <p><span>Адрес </span>
+                        <br> Санкт-Петербург, ул. Киевская, 4к1</p>
+                </div>
+                <div class="social-block">
+                    <p class="description">Мы в соц. сетях</p>
+                    <a href="http://vk.com/club112612670" target="_blank" class="footer-social vk"></a>
+                    <a href="https://www.facebook.com/My.EcoFitness/" class="footer-social facebook"></a>
+                    <a href="#" class="footer-social twitter disabled"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="copyright">Экофитнес © 2016</div>
+        <div class="designed">Designed by <a href="http://estray.jimdo.com" target="_blank">Estray</a></div>
+    </footer>
+    <script type="text/javascript" src="js/jquery.the-modal.js"></script>
+    <script type="text/javascript" src="js/modal-click.js"></script>
+	        <script>
+            $(document).ready(function() {
+
+                $(".serv-btn").click(function() {
+
+                    $(".block").hide();
+                    var BlockTrigger = $(this).data("trigger");
+                    $("#block-" + BlockTrigger).show();
+                    $('.serv-btn').removeClass('active'); //заберет актив у всех ссылок
+                    $(this).addClass('active'); //присвоит нужной 
+                });
+            });
+
+        </script>
+</body>
+</html>
