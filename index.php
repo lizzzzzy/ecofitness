@@ -50,9 +50,9 @@ if (count($_POST) > 0) {
   $text.= '<b>Сообщение:</b> '.$message;
   $text.= '<p><b>Отправленно с IP:</b> '.$_SERVER['REMOTE_ADDR'];
 
-  $mail = new Mail('admin@test.com'); // E-mail адрес
+  $mail = new Mail('admin@'.$_SERVER['HTTP_HOST']); // E-mail адрес
   $mail->setFromName($config->sitename); // Устанавливаем имя в обратном адресе
-  if (!$mail->send($config->email, $theme, $text));
+  if (!$mail->send($config->email, $theme, $message)) {
     print "Ошибка отправки письма";
   }
 
