@@ -57,7 +57,12 @@
             <section class="club">
                 <div class="wrapper">
                     <h2>Схема клуба</h2>
-                    <img src="img/club.png" alt="" width="2480" height="1748">
+                    <div class="scheme clearfix">
+                    <a rel="gallery" class="fancybox" href="img/ground-floor.png"><img src="img/ground-floor.png" alt=""></a>
+                      <a rel="gallery" class="fancybox" href="img/first-floor.png"><img src="img/first-floor.png" alt=""></a>
+                        <a rel="gallery" class="fancybox" href="img/second-floor.png"><img src="img/second-floor.png" alt=""></a>
+                          <a rel="gallery" class="fancybox" href="img/third-floor.png"><img src="img/third-floor.png" alt=""></a>
+                    </div>
                 </div>
             </section>
 	   <section class="contacts" id="contacts">
@@ -96,5 +101,18 @@
     </footer>
     <script type="text/javascript" src="js/jquery.the-modal.js"></script>
     <script type="text/javascript" src="js/modal-click.js"></script>
+     <script src="js/jquery.fancybox.js"></script>
+    <script type="text/javascript">
+        $(".fancybox").fancybox({
+            helpers: {
+                overlay: {
+                    css: {
+                        'background': 'rgba(0, 0, 0, 0.6)'
+                    }
+                }
+            }
+        });
+
+    </script>
 </body>
 </html>
