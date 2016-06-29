@@ -32,7 +32,7 @@ if (count($_POST) > 0) {
     print 'Не указан email или телефон';
   }
 
-  if (in_array($formname, $forms)) {
+  if (array_key_exists($formname, $forms)) {
     $theme = $forms[$formname];
   } else {
     $theme = 'Форма обратной связи';
@@ -52,7 +52,7 @@ if (count($_POST) > 0) {
 
   $mail = new Mail('admin@'.$_SERVER['HTTP_HOST']); // E-mail адрес
   $mail->setFromName($config->sitename); // Устанавливаем имя в обратном адресе
-  if (!$mail->send($config->email, $theme, $message)) {
+  if (!$mail->send($config->email, $theme, $text)) {
     print "Ошибка отправки письма";
   };
 }
