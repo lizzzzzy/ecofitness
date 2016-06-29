@@ -54,8 +54,9 @@ if (count($_POST) > 0) {
   $mail->setFromName($config->sitename); // Устанавливаем имя в обратном адресе
   if (!$mail->send($config->email, $theme, $message)) {
     print "Ошибка отправки письма";
-  }
+  };
+}
 
-  echo $html;
+echo $html;
 
 ?>
