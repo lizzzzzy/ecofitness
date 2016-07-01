@@ -890,21 +890,25 @@ cursor: -zoom-in;}
 .schuedle p {
     font-size: 24px;
     margin: 0;
-    padding-top: 93px;
-    padding-bottom: 100px
 }
+.schuedle-p{padding-top: 93px;padding-bottom: 100px;}
 .schuedle .script form {
     position: relative
 }
 .schuedle .script form .dates {
     float: left;
-    margin-left: 15px;
-    margin-top: 0
+    margin-left: 0px;
+    margin-top: 0;
+    padding: 0;
 }
 .schuedle .script form .dates li {
-    list-style: none;
-    text-align: left;
-    height: 90px
+   list-style: none;
+    height: 60px;
+    float: left;
+    width: 167px;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 15px;
 }
 .schuedle .script form .dates li a {
     font-size: 27px;
@@ -923,7 +927,7 @@ cursor: -zoom-in;}
     border: none;
     position: absolute;
     top: -45px;
-    right: 140px;
+    right: 5px;
     height: 45px;
     width: 200px;
     background-color: #5394ae;
@@ -943,41 +947,86 @@ cursor: -zoom-in;}
 .schuedle .script form select option {
     font-size: 20px
 }
-.schuedle .script form table {
-    background-color: #e0ecef;
+.schuedle .script form .table {
     font-family: "Open Sans";
     color: #000000;
-    float: right;
-    margin-right: 135px
 }
 .schuedle .script form table tr {
     border-bottom: 3px solid #ffffff
 }
-.schuedle .script form table tr td {
-    width: 200px;
-    height: 157px;
+.schuedle .script form .table .day{
+      width: 167px;
+    height: 2220px;
+        background-color: #e0ecef;
+    float: left;
+    position: relative !important;
+}
+.schuedle .script form .table .day:after{
+    content: '';
+    clear: both;
+    display: table;
+}
+.schuedle .script form .table .day div{
+    float: left;
+    width: 167px;
     padding-left: 12px;
-    text-align: left;
+    text-align: center;
     vertical-align: baseline;
-    border-right: 3px solid #ffffff;
-    position: relative
+    border: 3px solid #ffffff;
+    background-color: #e0ecef;
+    position: absolute;
+    font-size: 20px;
 }
-.schuedle .script form table tr td .time {
-    font-size: 30px;
+.half-hour{height: 80px;}
+.one-hour{height: 160px;}
+.one-n-half-hour{height: 240px;}
+
+.eight-half{
+    top: 0;
+}
+.nine{top: 80px;}
+.nine-half{top: 160px;}
+.ten{top: 240px;}
+.ten-half{top: 320px;}
+.eleven{top: 400px;}
+.eleven-half{top: 460px;}
+.twelve{top: 540px;}
+.twelve-half{top: 620px;}
+.thirteen{top: 700px;}
+.thirteen-half{top: 780px;}
+.fourteen{top: 860px;}
+.fourteen-half{top: 940px;}
+.fifteen{top: 1020px;}
+.fifteen-half{top: 1100px;}
+.sixteen{top: 1180px;}
+.sixteen-half{top: 1260px;  }
+.seventeen{top: 1340px;}
+.seventeen-half{top: 1420px;}
+.eighteen{top: 1500px;}
+.eighteen-half{top: 1580px;}
+.nineteen{top: 1660px;}
+.nineteen-half{top: 1740px;}
+.twenty{top: 1820px;}
+.twenty-half{top: 1900px;}
+.twentyone{top: 1980px;}
+.twentyone-half{top: 2060px;}
+.twentytwo{top: 2140px;}
+
+.schuedle  .time {
+    font-size: 20px;
     padding: 0;
-    line-height: 70px
+    line-height: 70px;
+        font-weight: bold;
 }
-.schuedle .script form table tr td .select {
-    font-size: 18px;
-    line-height: 24px;
+.schuedle  .select {
+    font-size: 16px;
+    line-height: 25px;
     padding: 0
 }
-.schuedle .script form table tr td .trainer {
-    font-size: 18px;
+.schuedle  .trainer {
+    font-size: 16px;
     line-height: 24px;
-    position: absolute;
-    bottom: 4px;
-    left: 12px
+
 }
 .contacts {
     padding-bottom: 30px
