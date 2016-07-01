@@ -1094,6 +1094,11 @@ cursor: -zoom-in;}
 .contacts .contact-info .social-block .facebook {
     background-size: 35%
 }
+.desc{
+    position: absolute;
+    right: 350px;
+    top: 310px;
+}
 footer {
     font-family: 'PTSans';
     background-color: #2ca14c;
