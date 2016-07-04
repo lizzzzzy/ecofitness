@@ -80,24 +80,41 @@ a.disabled {
 .btn-blue {
     background-color: #3472b9
 }
+.btn-blue:hover{background-color: #4452a9}
+
 .btn-green {
     background-color: #00ad5d
+}
+.btn-green:hover{
+      background-color: #01cd7d
 }
 .btn-red {
     background-color: #f03851
 }
+.btn-red:hover{
+    background-color: #f06859
+}
 .vk {
     background-color: #54769a;
     background-image: url(../img/vk.png)
+}
+.vk:hover{
+      background-color: #04769a;
 }
 .facebook {
     background-color: #6788ce;
     margin: 0 50px;
     background-image: url(../img/fb.png)
 }
+.facebook:hover{
+      background-color: #2788ce;
+}
 .twitter {
     background-color: #29c5f6;
     background-image: url(../img/tw.png)
+}
+.twitter:hover{
+    background-color: #21c5f6;
 }
 .modal {
     margin: 100px auto;
@@ -959,15 +976,17 @@ cursor: -zoom-in;}
 .schuedle .script form .table {
     font-family: "Open Sans";
     color: #000000;
+    font-size: 0;
 }
 .schuedle .script form table tr {
     border-bottom: 3px solid #ffffff
 }
 .schuedle .script form .table .day{
-      width: 167px;
-        background-color: #e0ecef;
-    float: left;
+         width: 167px;
+    background-color: #e0ecef;
     position: relative !important;
+    display: inline-block;
+    vertical-align: top;
 }
 .schuedle .script form .table .day:after{
     content: '';
@@ -975,8 +994,7 @@ cursor: -zoom-in;}
     display: table;
 }
 .schuedle .script form .table .day div{
-    float: left;
-    width: 167px;
+
     height: 167px;     
     padding-left: 12px;
     text-align: center;
