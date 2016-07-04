@@ -198,40 +198,7 @@
     <script type="text/javascript" src="js/jquery.the-modal.js"></script>
     <script type="text/javascript" src="js/modal-click.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiZ9OQLwQWgeosthNOHNNsvbLARH0yr3U&signed_in=true&callback=initMap"></script>
-    <script>
-    function initMap() {
-
-        var fit = {
-            lat: 59.902955,  //поменять координту lat
-            lng: 30.322377// поменять координату lon
-        };
-        var park = {
-            lat: 59.902843,  //поменять координту lat
-            lng: 30.323986  // поменять координату lon
-        };
-
-        var villages = new google.maps.Map(document.getElementById('villages'), {
-            zoom: 15, //зум
-            center: fit,
-            scrollwheel: false
-        });
-        var marker = new google.maps.Marker({
-            position: fit,
-            map: villages,
-            title: 'Экофитнес' //заголовок маркера
-        });
-
-        var marker = new google.maps.Marker({
-            position: park,
-            map: villages,
-            title: 'Парковка' //заголовок маркера
-        });
-
-    }
-
-    //sos - fit
-    //al - park
-</script>
+  <script type="text/javascript" src="js/map.js"></script>
 </body>
 
 </html>

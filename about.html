@@ -102,9 +102,7 @@
                 <div class="wrapper">
                     <h2>Мы на карте</h2>
                 </div>
-                <div class="frame-map">
-                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=di-ziwqjeyVYrWd4_F7Rrqa3a75Vao_B&width=100%&height=1000&lang=ru_RU&sourceType=constructor"></script>
-                </div>
+              <div id="villages" class="frame-map map_canvas"></div>
             </div>
               <div class="wrapper contact-info">
                 <div class="contact-date">
@@ -136,6 +134,8 @@
     </footer>
     <script type="text/javascript" src="js/jquery.the-modal.js"></script>
     <script type="text/javascript" src="js/modal-click.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiZ9OQLwQWgeosthNOHNNsvbLARH0yr3U&signed_in=true&callback=initMap"></script>
+  <script type="text/javascript" src="js/map.js"></script>
 </body>
 
 </html>
