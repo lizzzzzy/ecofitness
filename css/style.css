@@ -21,13 +21,14 @@
     font-weight: 600;
     src: url('fonts/raleway/Raleway-SemiBold.ttf')
 }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 * {
     box-sizing: border-box
 }
 body {
     background-color: #fff;
     font-family: "Raleway";
-min-width: 1200px;
+
 }
 .clearfix:after {
     content: '';
@@ -1028,7 +1029,8 @@ cursor: -zoom-in;}
 .schuedle  .select {
     font-size: 16px;
     line-height: 25px;
-    padding: 0
+    padding: 0;
+    font-weight: 600;
 }
 .schuedle  .trainer {
     font-size: 16px;
