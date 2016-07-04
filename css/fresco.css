@@ -188,8 +188,8 @@
 
 .fr-box {
     position: absolute;
-    top: 10%;
-    left: 18% !important;
+ /*    top: 10%; */
+/*     left: 18% !important; */
     height: 100%;
     width: 100%;
 }

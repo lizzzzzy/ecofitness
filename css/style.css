@@ -21,7 +21,10 @@
     font-weight: 600;
     src: url('fonts/raleway/Raleway-SemiBold.ttf')
 }
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@font-face {
+    font-family: 'roublefont';
+    src: url('fonts/roublefont.ttf')
+}
 * {
     box-sizing: border-box
 }
@@ -115,6 +118,10 @@ a.disabled {
 }
 .twitter:hover{
     background-color: #21c5f6;
+}
+.rouble-sign {
+    font-family: 'roublefont', "Helvetica Neue", Arial, sans-serif;
+    font-size: 36px;
 }
 .modal {
     margin: 100px auto;
@@ -758,14 +765,16 @@ header .about-us .promo-block .social .facebook {
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    margin: 0 10px
+    margin: 0 10px;
+    text-align: center;
 }
-.rates .subscriptions .sub-card .price span {
+.rates .subscriptions .sub-card .price .cost {
     font-size: 36px;
     display: block;
     font-family: "Open Sans";
     padding-top: 10px;
-    padding-bottom: 9px
+    padding-bottom: 9px;
+    color: #000;
 }
 .rates .subscriptions .sub-card .conditions {
     font-size: 22px;
@@ -816,7 +825,7 @@ header .about-us .promo-block .social .facebook {
     padding-top: 87px;
     font-family: "Open Sans"
 }
-.rates .special .special-card .price span {
+.rates .special .special-card .price span:nth-of-type(2) {
     font-size: 17px;
     line-height: 26px
 }
