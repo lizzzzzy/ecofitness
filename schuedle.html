@@ -14,6 +14,37 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.the-modal.js"></script>
+        <script>
+        $(function(){
+          var temp = new Array();
+          $.each($('p.select'), function(key,value){
+            t = $(value).text();
+            if(jQuery.inArray(t,temp) == -1){
+              $('<option value="'+t+'">'+t+'</option>').appendTo('.styler');
+            };
+            temp.push(t);
+          });
+        });
+
+        $(document).on('change','.styler',function(){
+          var val = $(this).val();
+          if (val == 'default') {
+            $.each($('p.select'), function(key,value){
+              $(value).parent().show();
+            });
+          } else {
+            var temp = new Array();
+            $.each($('p.select'), function(key,value){
+              t = $(value).text();
+              if(t != val){
+                $(value).parent().hide();
+              } else {
+                $(value).parent().show();
+              };
+            });
+          }
+        });
+        </script>
     </head>
 
 <body>
@@ -69,25 +100,9 @@
                                           <li><a href="#">ПT</a></li>
                                           <li><a href="#">СБ</a></li>
                                           <li><a href="#">ВС</a></li>
-                                      </ul> 
+                                      </ul>
                          <select name="Занятие" class="styler">
-                                <option value="">Занятие</option>
-                                <option value="">Функциональный тренинг</option>
-                                <option value="">Super Sculpt</option>
-                                <option value="">Pilates-mat</option>
-                                <option value="">Upper Body</option>
-                                <option value="">Stretching</option>
-                                <option value="">Хатха- йога</option>
-                                 <option value="">Low Body</option>
-                                  <option value="">Bums</option>
-                                   <option value="">Zumba</option>
-                                    <option value="">Latina</option>
-                                     <option value="">Flex</option>
-                                      <option value="">Step 0</option>
-                                       <option value="">Круговая тренировка</option>
-                                        <option value="">ABS+flex</option>
-                                 <option value="">Step&Sculpt</option>
-                                  <option value="">Antigravity yoga</option>
+                                <option value="default">Все занятия</option>
                             </select>
                  <!--            <img src="img/schuedle.png" alt="рапсисание"> -->
                             <div class="table clearfix">
@@ -102,7 +117,7 @@
                                         <p class="select">Pilates-mat</p>
                                          <p class="trainer">Анастасия Попенко</p>
                                      </div>
-                            
+
                                      <div class="one-hour">
                                          <p class="time seventeen">19:00-20:00</p>
                                         <p class="select">Upper Body</p>
@@ -113,10 +128,10 @@
                                         <p class="select">Stratching</p>
                                          <p class="trainer">Валерий Мусин</p>
                                      </div>
-                            
+
                                  </div>
                                  <div class="day tuesday">
-                             
+
                                      <div class="one-n-half-hour nine-half">
                                          <p class="time">9:30-11:00</p>
                                         <p class="select">Хатаха-йога</p>
@@ -127,7 +142,7 @@
                                         <p class="select">Low Body</p>
                                          <p class="trainer">Дассана</p>
                                      </div>
-                            
+
                                      <div class="half-hour eighteen-half">
                                          <p class="time soxteen-half">18:30-19:00</p>
                                         <p class="select">Bums</p>
@@ -143,10 +158,10 @@
                                         <p class="select">Flex</p>
                                          <p class="trainer">Анастасия Попенко</p>
                                      </div>
-                            
+
                                  </div>
                                  <div class="day wednesday">
-                            
+
                                      <div class="one-hour nine">
                                          <p class="time">9:00-10:00</p>
                                         <p class="select">Upper Body</p>
@@ -172,7 +187,7 @@
                                         <p class="select">Хатха-йога</p>
                                          <p class="trainer">Дассана</p>
                                      </div>
-                                 </div>                           
+                                 </div>
                                  <div class="day thursday">
                                      <div class="one-n-half-hour eight-half">
                                          <p class="time">8:30-10:00</p>
@@ -189,7 +204,7 @@
                                         <p class="select">Функциональный тренинг</p>
                                          <p class="trainer">Дассана</p>
                                      </div>
-                            
+
                                      <div class="one-hour eighteen">
                                          <p class="time">18:00-19:00</p>
                                         <p class="select">Круговая тренировка</p>
@@ -205,7 +220,7 @@
                                         <p class="select">Pilates-mat</p>
                                           <p class="trainer">Валерий Мусин</p>
                                      </div>
-                            
+
                                  </div>
                                  <div class="day friday">
 
@@ -224,7 +239,7 @@
                                         <p class="select">Stretching</p>
                                          <p class="trainer">Анастасия Попенко</p>
                                      </div>
-                                         
+
                                      <div class="one-hour nineteen">
                                          <p class="time">19:00-20:00</p>
                                         <p class="select">Функциональный тренинг</p>
@@ -235,10 +250,10 @@
                                         <p class="select">ABS + flex</p>
                                          <p class="trainer">Марина Андоний</p>
                                      </div>
-                                
+
                                  </div>
                                  <div class="day saturday">
-                            
+
                                      <div class="one-hour eleven">
                                          <p class="time">11:00-12:00</p>
                                         <p class="select">Super Sculpt</p>
@@ -249,10 +264,10 @@
                                         <p class="select">Step 0</p>
                                          <p class="trainer">Валерий Мусин</p>
                                      </div>
-                                     
+
                                  </div>
                                  <div class="day sunday">
-                                           
+
                                      <div class="one-hour ten">
                                          <p class="time">10:00-11:00</p>
                                         <p class="select">Step&Sculpt</p>
@@ -268,9 +283,9 @@
                                         <p class="select">Хатха-йога</p>
                                          <p class="trainer">Дассана</p>
                                      </div>
-                                        
+
                                  </div>
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>
