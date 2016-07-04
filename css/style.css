@@ -21,6 +21,7 @@
     font-weight: 600;
     src: url('fonts/raleway/Raleway-SemiBold.ttf')
 }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 * {
     box-sizing: border-box
 }
@@ -906,10 +907,17 @@ cursor: -zoom-in;}
     height: 60px;
     float: left;
     width: 167px;
-    border: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     text-align: center;
     padding-top: 15px;
+
 }
+.schuedle .script form .dates li:first-of-type{
+    border-left: 1px solid black ;
+}
+
 .schuedle .script form .dates li a {
     font-size: 27px;
     line-height: 32px;
@@ -929,7 +937,7 @@ cursor: -zoom-in;}
     top: -45px;
     right: 5px;
     height: 45px;
-    width: 200px;
+    width: 167px;
     background-color: #5394ae;
     color: #fff;
     font-size: 13px
@@ -945,7 +953,8 @@ cursor: -zoom-in;}
     display: none
 }
 .schuedle .script form select option {
-    font-size: 20px
+    font-size: 20px;
+    border-radius: 0;
 }
 .schuedle .script form .table {
     font-family: "Open Sans";
@@ -956,7 +965,6 @@ cursor: -zoom-in;}
 }
 .schuedle .script form .table .day{
       width: 167px;
-    height: 2220px;
         background-color: #e0ecef;
     float: left;
     position: relative !important;
@@ -969,19 +977,19 @@ cursor: -zoom-in;}
 .schuedle .script form .table .day div{
     float: left;
     width: 167px;
+    height: 167px;     
     padding-left: 12px;
     text-align: center;
     vertical-align: baseline;
     border: 3px solid #ffffff;
     background-color: #e0ecef;
-    position: absolute;
     font-size: 20px;
 }
-.half-hour{height: 80px;}
+/* .half-hour{height: 80px;}
 .one-hour{height: 160px;}
 .one-n-half-hour{height: 240px;}
-
-.eight-half{
+ */
+/* .eight-half{
     top: 0;
 }
 .nine{top: 80px;}
@@ -1010,13 +1018,13 @@ cursor: -zoom-in;}
 .twenty-half{top: 1900px;}
 .twentyone{top: 1980px;}
 .twentyone-half{top: 2060px;}
-.twentytwo{top: 2140px;}
+.twentytwo{top: 2140px;} */
 
 .schuedle  .time {
     font-size: 20px;
     padding: 0;
     line-height: 70px;
-        font-weight: bold;
+        font-weight: 600;
 }
 .schuedle  .select {
     font-size: 16px;
