@@ -14,37 +14,7 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.the-modal.js"></script>
-        <script>
-        $(function(){
-          var temp = new Array();
-          $.each($('p.select'), function(key,value){
-            t = $(value).text();
-            if(jQuery.inArray(t,temp) == -1){
-              $('<option value="'+t+'">'+t+'</option>').appendTo('.styler');
-            };
-            temp.push(t);
-          });
-        });
-
-        $(document).on('change','.styler',function(){
-          var val = $(this).val();
-          if (val == 'default') {
-            $.each($('p.select'), function(key,value){
-              $(value).parent().show();
-            });
-          } else {
-            var temp = new Array();
-            $.each($('p.select'), function(key,value){
-              t = $(value).text();
-              if(t != val){
-                $(value).parent().hide();
-              } else {
-                $(value).parent().show();
-              };
-            });
-          }
-        });
-        </script>
+        <script src="js/shedule.js"></script>
     </head>
 
 <body>
@@ -64,7 +34,7 @@
             <a href="#" class="close">x</a>
         </div>
     </div>
-    
+
      <header>
         <div class="fixed-header "></div>
         <div class="fixed-navigation">
@@ -72,7 +42,7 @@
            <a href="index.html" class="logo"><img src="img/head-logo.png" width="237" height="42" alt="ecofitness"></a>
                 <nav class="main-navigation">
                     <ul>
-    
+
                         <li class="menu-item"><a href="gallery.html">Фотогаллерея</a></li>
                         <li class="menu-item"><a href="services.html">Услуги</a></li>
                         <li class="menu-item"><a href="rates.html">Тарифы</a></li>
