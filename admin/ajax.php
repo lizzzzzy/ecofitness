@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,18 +15,35 @@
     <link rel="stylesheet" type="text/css" href="css/the-modal.css" media="all">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.the-modal.js"></script>
 </head>
 
 <body>
-     <header>
+
+    <!--модальное окно заказа звонка-->
+    <div id="form-container">
+        <div id="test-modal" style="display:none" class="modal">
+            <p>Бесплатная консультация</p>
+            <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+            <form id="contact-form" name="contact-form" method="post" action="">
+                <input type="text" placeholder="Имя" name="name" id="name" value="" />
+                <input type="text" placeholder="E-mail (обязательно)" name="email" id="email" value="" />
+                <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone" value="" />
+                <textarea name="message" id="message">
+                    Заказан звонок</textarea>
+                <input type="submit" name="button" id="button" value="Отправить" />
+                <input type="hidden" name="formname" value="backcall" />
+            </form>
+            <a href="#" class="close">x</a>
+        </div>
+    </div>
+
+    <header class="index-header">
         <div class="fixed-header "></div>
         <div class="fixed-navigation">
             <div class="wrapper clearfix navigation navbar-wrapper">
-                <a href="#" class="logo disabled"><img src="img/head-logo.png" width="237" height="42" alt="ecofitness"></a>
+                <a href="index.html" class="logo"><img src="img/head-logo.png" width="237" height="42" alt="ecofitness"></a>
                 <nav class="main-navigation">
                     <ul>
-                        <li class="menu-item active"><a href="about.html">О нас</a></li>
                         <li class="menu-item"><a href="gallery.html">Фотогаллерея</a></li>
                         <li class="menu-item"><a href="services.html">Услуги</a></li>
                         <li class="menu-item"><a href="rates.html">Тарифы</a></li>
@@ -38,9 +55,55 @@
                 <a href="#" class="call btn trigger ">Заказать звонок</a>
             </div>
         </div>
+        <section class="about-us">
+            <div class="promo-block wrapper clearfix">
+                <p class="contacts">
+                    %address%
+                    <br>
+                    <span>%tel%</span>
+                </p>
+                <div class="heading">
+                    <h1>Фитнес-клуб «Ecofitness»</h1>
+                    <p>Это новый стиль Вашей жизни —
+                        <br> энергия, движение, гармония</p>
+                    <a href="/services" class="btn btn-blue">Посмотреть услуги</a>
+                    <a href="/schuedle" class="btn btn-green">Узнать расписание</a>
+                </div>
+                <div class="social">
+                    <a href="http://vk.com/club112612670" target="_blank" class="btn-social vk"></a>
+                    <a href="https://www.facebook.com/My.EcoFitness/" target="_blank" class="btn-social facebook"></a>
+                    <a href="#" target="_blank" class="btn-social twitter disabled"></a>
+                </div>
+            </div>
+        </section>
     </header>
     <main>
-        <div id="about-us" class="modal-slider">
+        <section class="reasons">
+            <div class="why wrapper clearfix">
+                <h2 data-editable="true">Почему «ЭкоФитнес»?</h2>
+                <p>Мы уделяем внимание всему,
+                    <br> что влияет на результат</p>
+                <div class="reason eco">
+                    <h3>Защита здоровья  и экологии </h3>
+                    <p>Очистительная система «GreenTech»®, дизайн Биотек из натуральных материалов, спорт-бар со здоровой пищей и профессиональный медицинский контроль.</p>
+                </div>
+                <div class="reason spectr">
+                    <h3>Широкий спектр  услуг </h3>
+                    <p>У нас Вы найдете десятки услуг со всего мира: от фитнес-зала и сауны до удивительной аэро-йоги и кинезитерапии. Также Вас ждёт множество групповых занятий.</p>
+                </div>
+                <div class="reason comfort">
+                    <h3>Комфорт премиум-класса</h3>
+                    <p>В Вашем распоряжении около 2000м2 площади, итальянские тренажёры «Panatta», именитые тренеры, отдельный этаж для фитнес-реабилитации и эталонный сервис.</p>
+                </div>
+                <div class="reason individual">
+                    <h3>Индивидуальный  подход </h3>
+                    <p>Тренеры высшей категории проведут тестирование и диагностику организма, учтут Ваши предпочтения, особенности физиологии и подготовят персональную уникальную программу.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="modal-slider">
+            <h2>Как мы работаем</h2>
             <div class="wrapper-slider">
                 <input type="radio" name="point" id="slide1" checked>
                 <input type="radio" name="point" id="slide2">
@@ -96,38 +159,25 @@
                     <label for="slide3"></label>
                 </div>
             </div>
-        </div>
+        </section>
         <section class="contacts" id="contacts">
             <div class="map">
                 <div class="wrapper">
                     <h2>Мы на карте</h2>
                 </div>
-                <div class="frame-map">
-                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=di-ziwqjeyVYrWd4_F7Rrqa3a75Vao_B&width=100%&height=1000&lang=ru_RU&sourceType=constructor"></script>
-                </div>
+  <div id="villages" class="frame-map map_canvas"></div>
             </div>
-              <div class="wrapper contact-info">
+            <div class="wrapper contact-info">
                 <div class="contact-date">
                     <div class="main-logo"><img src="img/contact-logo.png" width="330" height="210" alt=""></div>
                     <p><span>Часы работы</span>
-<<<<<<< HEAD
                         <br> %hours%</p>
-=======
-                        <br> 7:00 — 23:00 в будние дни
-                        <br> 9:00 — 22:00 в выходные дни
-                        </p>
->>>>>>> origin/master
                     <p><span>E-mail </span>
                         <br> %email% </p>
                     <p><span>Телефон</span>
                         <br> %tel%</p>
                     <p><span>Адрес </span>
-<<<<<<< HEAD
                         <br> %address%</p>
-=======
-                        <br> Санкт-Петербург, ул. Киевская, 4к1</p>
-                        <p class="desc">Парковка</p>
->>>>>>> origin/master
                 </div>
                 <div class="social-block">
                     <p class="description">Мы в соц. сетях</p>
@@ -144,6 +194,41 @@
     </footer>
     <script type="text/javascript" src="js/jquery.the-modal.js"></script>
     <script type="text/javascript" src="js/modal-click.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiZ9OQLwQWgeosthNOHNNsvbLARH0yr3U&signed_in=true&callback=initMap"></script>
+    <script>
+    function initMap() {
+
+        var fit = {
+            lat: 59.902955,  //поменять координту lat
+            lng: 30.322377// поменять координату lon
+        };
+        var park = {
+            lat: 59.902843,  //поменять координту lat
+            lng: 30.323986  // поменять координату lon
+        };
+
+        var villages = new google.maps.Map(document.getElementById('villages'), {
+            zoom: 15, //зум
+            center: fit,
+            scrollwheel: false
+        });
+        var marker = new google.maps.Marker({
+            position: fit,
+            map: villages,
+            title: 'Экофитнес' //заголовок маркера
+        });
+
+        var marker = new google.maps.Marker({
+            position: park,
+            map: villages,
+            title: 'Парковка' //заголовок маркера
+        });
+
+    }
+
+    //sos - fit
+    //al - park
+</script>
 </body>
 
 </html>
