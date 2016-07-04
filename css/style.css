@@ -918,7 +918,11 @@ cursor: -zoom-in;}
     font-size: 24px;
     margin: 0;
 }
-.schuedle-p{padding-top: 93px;padding-bottom: 100px;}
+.schuedle-p{    
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: left;
+}
 .schuedle .script form {
     position: relative
 }
@@ -933,9 +937,9 @@ cursor: -zoom-in;}
     height: 60px;
     float: left;
     width: 167px;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
     text-align: center;
     padding-top: 15px;
 
@@ -960,7 +964,7 @@ cursor: -zoom-in;}
     border-radius: 0;
     border: none;
     position: absolute;
-    top: -45px;
+    top: -85px;
     right: 5px;
     height: 45px;
     width: 167px;
@@ -1005,7 +1009,7 @@ cursor: -zoom-in;}
 .schuedle .script form .table .day div{
 
     height: 167px;     
-    padding-left: 12px;
+    padding: 7px;
     text-align: center;
     vertical-align: baseline;
     border: 3px solid #ffffff;
