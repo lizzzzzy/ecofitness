@@ -255,6 +255,7 @@ $(document).on('submit','.q1-admin-add-rasp-form form',function(event){
   var start = $('select[name="startDate"]').val();
   startTime = start.split(':');
   startTime = startTime[0]*60 + startTime[1];
+
   var cl = $('input[name="day"]').val();
   var key = new Array();
   var l = $('.'+cl+' .one-hour').length;
@@ -266,8 +267,7 @@ $(document).on('submit','.q1-admin-add-rasp-form form',function(event){
       temp = time.split('-');
       temp = temp[0].split(':');
       mins = temp[0]*60 + temp[1];
-      console.log(startTime+'-'+mins);
-      if (startTime < mins) {
+      if (parseInt(startTime) < parseInt(mins)) {
         key.push(i);
       }
     });
@@ -289,15 +289,24 @@ $(document).on('submit','.q1-admin-add-rasp-form form',function(event){
     dataType: "json",
     jsonpCallback: '?',
     data: data,
-  }).done(function() {
-    var o = $('.q1-admin-add-rasp-form');
-    o.fadeOut(function(){
-      o.remove();
-    })
-    $('.q1-admin-add-rasp-form-bg').fadeOut(function(){
-        $('.q1-admin-add-rasp-form-bg').remove();
-    });
-  });
+    success: function(callback) {
+      var o = $('.q1-admin-add-rasp-form');
+      o.fadeOut(function(){
+        o.remove();
+      })
+      $('.q1-admin-add-rasp-form-bg').fadeOut(function(){
+          $('.q1-admin-add-rasp-form-bg').remove();
+          $('.'+cl).html(callback.html);
+          $('.'+cl+' div').each(function(key,el){
+            $(el).prepend('<span class="q1-admin-delete-rasp">x</span>');
+          });
+          $('.'+cl).each(function(key,el){
+            $(el).append('<div class="q1-admin-add-rasp"><span>+</span></div>');
+          });
+      });
+
+    }
+  })
   return false;
 });
 
