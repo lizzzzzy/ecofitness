@@ -74,6 +74,8 @@ $auth = new AuthClass();
 if ($auth->isAuth()) {
   $panel = file_get_contents('admin/panel.tpl');
   echo preg_replace($codes, $values, $panel);
+} else {
+  $html = preg_replace(' data-editable="true"','',$html);
 }
 
 echo $html;

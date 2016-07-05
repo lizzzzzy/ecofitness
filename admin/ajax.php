@@ -10,8 +10,7 @@ if ($auth->isAuth() && count($_POST) > 0 ) {
   $page = @$_POST['page'];
   $action = @$_POST['action'];
 
-  $html = file_get_contents('../'.$page.'.html');
-  $html = str_get_html($html);
+  $html = file_get_html('../'.$page.'.html', $use_include_path = false, $context=null, $offset = -1, $maxLen=-1, $lowercase = true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=false, $defaultBRText=DEFAULT_BR_TEXT);
 
   if ($page == 'schuedle') {
     if ($action == 'remove') {
@@ -51,6 +50,16 @@ if ($auth->isAuth() && count($_POST) > 0 ) {
       header('Content-Type: application/json');
       print json_encode(array('answer'=>'ok', 'html'=>trim($html)));
     }
+  } else {
+    $dom = @$_POST['dom'];
+    $index = @$_POST['index'];
+    $new = @$_POST['new'];
+    $new = str_replace('>&nbsp;',' />',$new);
+    $html->find($dom,$index)->innertext = $new;
+    header('Content-Type: application/json');
+    print json_encode(array('answer'=>'ok'));
+    unlink('../'.$page.'.html');
+    file_put_contents('../'.$page.'.html',$html);
   }
 
   // echo $html;

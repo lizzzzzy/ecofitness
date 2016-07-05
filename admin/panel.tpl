@@ -163,7 +163,9 @@
   text-align:right;
   cursor:pointer;
 }
-
+.q1-admin-element-active {
+  z-index:99999;
+}
 
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -171,7 +173,7 @@
 $(function(){
   $('*[data-editable="true"]').addClass('q1-editable');
   $('*[data-editable="true"]').each(function(key,element){
-    $(element).attr('data-old',$(element).text());
+    $(element).attr('data-old',$(element).html());
   });
 
   if (location.pathname == '/schuedle') {
@@ -187,6 +189,30 @@ $(function(){
       $('body').prepend('<div class="q1-admin-add-rasp-form-bg"></div><div class="q1-admin-add-rasp-form"><div class="q1-admin-rasp-close">Закрыть</div><h3>Новое занятие</h3><form method="POST" action="/admin/ajax.php"><input type="hidden" name="day" value="'+cl+'" /><select name="startDate"><option>7:00</option><option>7:30</option><option>8:00</option><option>8:30</option><option>9:00</option><option>9:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option></select> - <select name="endDate"><option>7:30</option><option>8:00</option><option>8:30</option><option>9:00</option><option>9:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option><option>23:00</option></select><br/><input type="text" name="title" placeholder="Занятие" /><br/><input type="text" name="name" placeholder="Тренер" /><br/><input type="submit" value="Добавить" /></form></div>');
     });
   };
+
+  $(document).on('keypress','[contenteditable=true]',function(e){
+   var el = $(this);
+   if(e.keyCode==13){ //enter && shift
+
+    e.preventDefault(); //Prevent default browser behavior
+    if (window.getSelection) {
+        var selection = window.getSelection(),
+            range = selection.getRangeAt(0),
+            br = document.createElement("br"),
+            textNode = document.createTextNode("\u00a0"); //Passing " " directly will not end up being shown correctly
+        range.deleteContents();//required or not?
+        range.insertNode(br);
+        range.collapse(false);
+        range.insertNode(textNode);
+        range.selectNodeContents(textNode);
+
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return false;
+    }
+
+     }
+  });
 });
 
 
@@ -200,7 +226,6 @@ $(document).on('click','*[data-editable="true"]',function(){
     if (element.css('position') != 'absolute') {
         element.css('position','relative')
     }
-    element.css('z-index','999');
     $('body').append('<div class="q1-admin-bg"></div>');
     $('.q1-admin-panel').addClass('q1-admin-panel-active');
   }
@@ -219,29 +244,32 @@ $(document).on('click','.q1-btn-cancel',function(){
 $(document).on('click','.q1-btn-save',function(){
   var element = $('.q1-admin-element-active');
   var old = element.attr('data-old');
-  element.attr('contenteditable','false');
-  element.removeClass('q1-admin-element-active');
-  $('.q1-admin-panel').removeClass('q1-admin-panel-active');
-  $('.q1-admin-bg').remove();
-  $('body').append('<div class="q1-admin-alert q1-admin-alert-success">Успешно</div>');
-  element.attr('data-old',$(element).text());
 
-  //закончить
   $.ajax({
+    type: "POST",
+    crossDomain: true,
     url: "/admin/ajax.php",
+    dataType: "json",
     jsonpCallback: '?',
     data: {
-      'html' : element.html(),
-      'old' : old,
-    },
-  }).done(function() {
-    $( this ).addClass( element.html() );
-  });
+      'page': location.pathname.substring(1),
+      'action': 'edit',
+      'dom': element[0].localName,
+      'index': element.index(),
+      'new': element.html(),
+    }
+  }).done(function(){
+    element.attr('contenteditable','false');
+    element.removeClass('q1-admin-element-active');
+    $('.q1-admin-panel').removeClass('q1-admin-panel-active');
+    $('.q1-admin-bg').remove();
+    $('body').append('<div class="q1-admin-alert q1-admin-alert-success">Успешно</div>');
+    element.attr('data-old',$(element).text());
 
-  console.log(element.html());
-  setTimeout(function(){
-    $('.q1-admin-alert').remove();
-  }, 2000);
+    setTimeout(function(){
+      $('.q1-admin-alert').remove();
+    }, 2000);
+  });
 });
 
 //Добавить занятие
