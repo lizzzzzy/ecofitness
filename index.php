@@ -1,6 +1,7 @@
 <?php
 
 require_once ('lib/mail.php');
+require_once ('lib/auth.php');
 
 $page = @$_GET['page'];
 if (empty($page) || !is_file($page.'.html')) {
@@ -55,6 +56,24 @@ if (count($_POST) > 0) {
   if (!$mail->send($config->email, $theme, $text)) {
     print "Ошибка отправки письма";
   };
+}
+
+$codes = array();
+$values = array();
+foreach ($config as $key => $conf) {
+  $codes[] = '/%'.$key.'%/';
+  $values[] = $conf;
+}
+
+$codes[] = '/%page%/';
+$values[] = $page;
+
+$html = preg_replace($codes, $values, $html);
+
+$auth = new AuthClass();
+if ($auth->isAuth()) {
+  $panel = file_get_contents('admin/panel.tpl');
+  echo preg_replace($codes, $values, $panel);
 }
 
 echo $html;
