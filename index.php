@@ -68,15 +68,18 @@ foreach ($config as $key => $conf) {
 $codes[] = '/%page%/';
 $values[] = $page;
 
-$html = preg_replace($codes, $values, $html);
-
 $auth = new AuthClass();
 if ($auth->isAuth()) {
   $panel = file_get_contents('admin/panel.tpl');
-  echo preg_replace($codes, $values, $panel);
+  $panel = preg_replace($codes, $values, $panel);
 } else {
-  $html = preg_replace(' data-editable="true"','',$html);
+  $panel = '';
 }
+
+$codes[] = '/<body>/';
+$values[] = '<body>'.$panel;
+
+$html = preg_replace($codes, $values, $html);
 
 echo $html;
 
