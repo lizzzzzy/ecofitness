@@ -8,7 +8,7 @@ session_start(); //Запускаем сессии
  */
 class AuthClass {
     private $_login = "admin"; //Устанавливаем логин
-    private $_password = "admin"; //Устанавливаем пароль
+    private $_password = "ecofitness"; //Устанавливаем пароль
 
     /**
      * Проверяет, авторизован пользователь или нет
