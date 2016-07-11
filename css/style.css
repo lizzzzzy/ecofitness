@@ -123,6 +123,8 @@ a.disabled {
     font-family: 'roublefont', "Helvetica Neue", Arial, sans-serif;
     font-size: 36px;
 }
+.promo-modal{width: 800px}
+.modal img{width: 100%;}
 .modal {
     margin: 100px auto;
     width: 476px;
@@ -694,6 +696,19 @@ header .about-us .promo-block .social .facebook {
     margin: 0;
     padding-left: 30px
 }
+.services .service-menu .column-right .massage .hover-price {
+    display: none;
+    position: absolute;
+    right: -26px;
+    top: -300px;
+    width: 586px;
+    height: 900px;
+    color: black;
+    background-color: white;
+}
+.services .service-menu .column-right .massage .hover-price .number{
+    font-size: 18px;
+}
 .services .btn {
     position: absolute;
     bottom: 10px;
@@ -709,6 +724,15 @@ header .about-us .promo-block .social .facebook {
 .services .btn-green {
     right: 10px
 }
+.services .btn-prices{
+        right: 20px;
+    bottom: 60%;
+    background-color: #3472b9;
+    width: 185px;
+}
+.massage>.btn-prices:hover .hover-price{
+    display: inline-block !important;
+} 
 .rates p {
     font-size: 36px;
     text-align: center
@@ -787,7 +811,7 @@ header .about-us .promo-block .social .facebook {
     margin-right: 0
 }
 .rates .special {
-    width: 877px;
+    width: 1180px;
     height: 445px;
     background-color: #00ad5d;
     margin: 0 auto;
