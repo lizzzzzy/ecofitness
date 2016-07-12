@@ -5,15 +5,15 @@
                     $('#test-modal').modal().open();
                 });
 
-$(window).load(function (e) {
-  // манипуляции с готовой страницей
-      e.preventDefault();
-    $('#promo-modal').modal().open();
-});
+//$(window).load(function (e) {
+//  // манипуляции с готовой страницей
+//      e.preventDefault();
+//    $('#promo-modal').modal().open();
+//});
 
                 // attach modal close handler
-                $('.modal .close').on('click', function(e) {
+                $('.close').on('click', function(e) {
                     e.preventDefault();
-                    $.modal().close();
+                    $('#test-modal').modal().close();
                 });
  });

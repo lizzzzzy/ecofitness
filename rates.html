@@ -161,20 +161,55 @@
                             </div>
                         <a href="#" class="btn btn-red seventh-modal">Заказать сейчас</a>
                     </div>
+                </div>
+                
+                 <p class="select">Другие наши абонементы</p>
+                <div class="special clearfix">
                     <div class="special-card">
                         <div class="title">50 посещений</div>
-                        <div class="price">23 000<span class="rouble-sign">р</span>
-                            <br> <span> </span>
-                            <p>12 месяцев, полный</p>
+                        <div class="price">
+                            23 000 <span class="rouble-sign">р</span>
+                            <br>
+                            <span> </span>
+                            <p>
+                                12 месяцев, полный
+                            </p>
+                        </div>
+                        <div class="conditions">
+                            <br>Время занятий
+                            <br>с 7 до 23
+                            <br>1 инструктаж
+                            </div>
+                        <a href="#" class="btn btn-red eight-modal">Заказать сейчас</a>
+                    </div>
+                    <div class="special-card">
+                        <div class="title">3 месяца</div>
+                        <div class="price">11 500<span class="rouble-sign">р</span>
+                            
+                            <p>3 месяца, полный</p>
+                        </div>
+                        <div class="conditions">от 4 человек
+                            <br>Время занятий с 7 до 23
+                            <br> 1 инструктаж
+                          
+                            </div>
+                        <a href="#" class="btn btn-red nineth-modal">Заказать сейчас</a>
+                    </div>
+                    <div class="special-card">
+                        <div class="title">На месяц</div>
+                        <div class="price">4 500<span class="rouble-sign">р</span>
+                          
+                            <p>1 месяц, полный</p>
                         </div>
                         <div class="conditions"> Время занятий
                             <br> с 7 до 23
                             <br>1 инструктаж
-                            
+                      
                             </div>
-                        <a href="#" class="btn btn-red seventh-modal">Заказать сейчас</a>
+                        <a href="#" class="btn btn-red tenth-modal">Заказать сейчас</a>
                     </div>
                 </div>
+
 
                 <div id="form-container" class="form">
                     <p>Не нашли подходящий тариф?</p>
@@ -312,6 +347,55 @@
                             <a href="#" class="close">x</a>
                         </div>
                     </div>
+                     <div id="form-container">
+                        <div id="eighth-modal" style="display:none" class="modal">
+                            <p>Бронирование абонемента</p>
+                            <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+                            <form id="contact-form" name="contact-form" method="post" action="">
+                                <input type="text" placeholder="Имя" name="name" id="name">
+                                <input type="text" placeholder="E-mail (обязательно)" name="email" id="email">
+                                <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone">
+                                <textarea name="message" id="message">
+                                    Бронирование абонемента на 50 посещений</textarea>
+                                <input type="submit" name="button" id="button" value="Отправить" />
+                                <input type="hidden" name="formname" value="reserv" />
+                            </form>
+                            <a href="#" class="close">x</a>
+                        </div>
+                    </div>
+                    
+                     <div id="form-container">
+                        <div id="ninth-modal" style="display:none" class="modal">
+                            <p>Бронирование абонемента</p>
+                            <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+                            <form id="contact-form" name="contact-form" method="post" action="">
+                                <input type="text" placeholder="Имя" name="name" id="name">
+                                <input type="text" placeholder="E-mail (обязательно)" name="email" id="email">
+                                <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone">
+                                <textarea name="message" id="message">
+                                    Бронирование абонемента на 3 месяца</textarea>
+                                <input type="submit" name="button" id="button" value="Отправить" />
+                                <input type="hidden" name="formname" value="reserv" />
+                            </form>
+                            <a href="#" class="close">x</a>
+                        </div>
+                    </div>
+                     <div id="form-container">
+                        <div id="tenth-modal" style="display:none" class="modal">
+                            <p>Бронирование абонемента</p>
+                            <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+                            <form id="contact-form" name="contact-form" method="post" action="">
+                                <input type="text" placeholder="Имя" name="name" id="name">
+                                <input type="text" placeholder="E-mail (обязательно)" name="email" id="email">
+                                <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone">
+                                <textarea name="message" id="message">
+                                    Бронирование абонемента на месяц</textarea>
+                                <input type="submit" name="button" id="button" value="Отправить" />
+                                <input type="hidden" name="formname" value="reserv" />
+                            </form>
+                            <a href="#" class="close">x</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,15 +411,6 @@
                 <div class="contact-date">
                     <div class="main-logo"><img src="img/contact-logo.png" width="330" height="210" alt=""></div>
                     <p><span>Часы работы</span>
-
-
-                        <br> %hours%</p>
-
-                        <br> 7:00 — 23:00 в будние дни
-                        <br> 9:00 — 22:00 в выходные дни
-                        </p>
-
-
                         <br> 7:00 — 23:00 в будние дни
                         <br> 9:00 — 22:00 в выходные дни
                         </p>
@@ -345,14 +420,6 @@
                     <p><span>Телефон</span>
                         <br> +7 812 407 11 88</p>
                     <p><span>Адрес </span>
-
-
-                        <br> %address%</p>
-
-                        <br> Санкт-Петербург, ул. Киевская, 4к1</p>
-                        <p class="desc">Парковка</p>
-
-
                         <br> Санкт-Петербург, ул. Киевская, 4к1</p>
                         <p class="desc">Парковка</p>
  <img src="img/parking.png" alt="" class="parking">

@@ -401,6 +401,11 @@ header .navigation .main-navigation ul li {
     margin-right: 30px;
     position: relative;
 }
+video{
+        position: absolute;
+    left: 50px;
+    top: 537px;
+}
 .main-navigation a {
     text-decoration: none;
     font-family: Raleway;
@@ -709,6 +714,12 @@ header .about-us .promo-block .social .facebook {
 .services .service-menu .column-right .massage .hover-price .number{
     font-size: 18px;
 }
+.services .group{
+    line-height: 26px;
+}
+.services .group .bold-title{
+    padding: 15px !important;
+} 
 .services .btn {
     position: absolute;
     bottom: 10px;
@@ -811,7 +822,7 @@ header .about-us .promo-block .social .facebook {
     margin-right: 0
 }
 .rates .special {
-    width: 1180px;
+    width: 880px;
     height: 445px;
     background-color: #00ad5d;
     margin: 0 auto;
