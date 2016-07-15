@@ -48,6 +48,9 @@
                 <?php if ($auth->isAuth()): ?>
                 <nav class="main-navigation">
                     <ul>
+                        <li class="menu-item"><a href="/admin">Настройки</a></li>
+                        <li class="menu-item"><a href="/admin?banner=1">Баннер</a></li>
+                        <li class="menu-item"><a href="/admin?trainings=1">Тренировки</a></li>
                         <li class="menu-item"><a href="/admin?logout=1">Выйти</a></li>
                     </ul>
                 </nav>
@@ -68,21 +71,73 @@
             </div>
           </div>
         <?php else: ?>
-        <div class="rates">
-          <div class="form">
-            <p>Настройки</p>
-            <br/>
-            <form method="post" action="/admin/?save=1">
-              <?php
-              foreach ($config as $name => $value) {
-                  print('<input type="hidden" name="sname[]" value="'.$name.'" />');
-                  print('<input type="text" name="svalue[]" placeholder="'.$name.'" value="'.$value.'" /></p>');
-              }
-              ?>
-              <input type="submit" id="button" value="Сохранить" />
-            </form>
+          <?php if (isset($_GET['trainings']) && $_GET['trainings'] == 1): ?>
+            <script>
+              $.ajax({
+                url: "/schuedle",
+              }).done(function(data) {
+                var e = new Array();
+                $.each($("p.select", data), function(n, a) {
+                    t = $(a).text();
+                    if (jQuery.inArray(t, e) < 0 ){
+                      e.push(t);
+                    }
+                });
+                var exist = new Array();
+                $('.fields').each(function(key,el){
+                  if (jQuery.inArray($(el).data('name'),e) < 0) {
+                    $(el).hide();
+                  } else {
+                    exist.push($(el).data('name'));
+                  }
+                });
+                $.each(e, function(n,t) {
+                  if (jQuery.inArray(t,exist) < 0) {
+                    console.log(t);
+                    console.log(exist);
+                    $('<br />'+t+':<input type="hidden" name="title[]" value="'+t+'" /><textarea name="description[]"></textarea>').appendTo('#unfields');
+                  }
+                })
+              });
+            </script>
+            <div class="rates" style="text-align:center;">
+              <div class="form">
+                <p>Описание занятий</p>
+                <form method="post" action="/admin/?trainings=1">
+                  <br>
+                    <?php
+                        $trainings = file_get_contents('../trainings.json');
+                        $trainings = json_decode($trainings);
+                    ?>
+                    <?php foreach ($trainings as $key => $val): ?>
+                    <div class="fields" data-name="<?= $key;?>">
+                      <?= $key;?><br>
+                      <input type="hidden" name="title[]" value="<?= $key;?>">
+                      <textarea name="description[]"><?= $val;?></textarea>
+                    </div>
+                    <?php endforeach; ?>
+                    <div id="unfields"></div>
+                  <input type="submit" id="button" value="Сохранить">
+                </form>
+              </div>
+            </div>
+          <?php else: ?>
+          <div class="rates">
+            <div class="form">
+              <p>Настройки</p>
+              <br/>
+              <form method="post" action="/admin/?save=1">
+                <?php
+                foreach ($config as $name => $value) {
+                    print('<input type="hidden" name="sname[]" value="'.$name.'" />');
+                    print('<input type="text" name="svalue[]" placeholder="'.$name.'" value="'.$value.'" /></p>');
+                }
+                ?>
+                <input type="submit" id="button" value="Сохранить" />
+              </form>
+            </div>
           </div>
-        </div>
+          <?php endif;?>
         <?php endif;?>
 
     </header>
