@@ -634,8 +634,7 @@ header .about-us .promo-block .social .facebook {
     display: none;
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
-    opacity: .9;
+    background-color: hsla(0,0%,100%,.9);
     position: absolute;
     overflow: hidden;
     top: 0;
@@ -726,6 +725,7 @@ header .about-us .promo-block .social .facebook {
 .services .service-menu .column-right .massage .hover-price .number {
     font-size: 18px;
 }
+.services img{width: 100%;}
 .services .group {
     line-height: 21px;
 }
