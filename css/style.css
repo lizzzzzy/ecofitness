@@ -1361,3 +1361,39 @@ only screen and (min-device-pixel-ratio: 1.5) {
     display: inline-block;
     height: 700px;
 }
+
+.select {
+  position:relative;
+}
+.popup {
+      background:rgba(220,220,220,0.95) !important;
+      z-index: 2;
+      position: absolute;
+      border: none !important;
+      display: block;
+      width:100%;
+      padding:7px 10px !important;
+      margin-top:30px;
+      font-size:1rem;
+      height:auto !important;
+      border-radius:5px;
+      margin-left:-10px;
+}
+.popup:before {
+  content:'';
+  border:transparent solid 8px;
+  position:absolute;
+  display:block;
+  border-bottom-color:rgba(220,220,220,0.95);
+  margin-top:-20px;
+  left:50%;
+  margin-left:-8px;
+}
+.popup b {display:none;}
+.popup p {
+  font-size:0.8rem;
+  line-height:1rem;
+  font-weight:normal;
+  text-align:left;
+  color:#444;
+}

@@ -20,6 +20,29 @@
             $auth->out();
     }
 
+    if (isset($_GET["banner"]) && $_GET["banner"] == 1) {
+        if (count($_FILES) > 0) {
+          if ($_FILES['file']['type'] != 'image/jpeg') {
+            exit('<h2>Неправильный формат файла</h2>');
+          }
+          unlink(__DIR__.'/../img/service-pack.jpg');
+          move_uploaded_file($_FILES['file']['tmp_name'], __DIR__.'/../img/service-pack.jpg');
+          header("Location: /admin");
+        }
+    }
+
+    if (isset($_GET["trainings"]) && $_GET["trainings"] == 1) {
+        if (count($_POST) > 0) {
+          $result = array();
+          foreach ($_POST['title'] as $key => $val) {
+            $result[$val] = $_POST['description'][$key];
+          }
+          unlink(__DIR__.'/../trainings.json');
+          file_put_contents(__DIR__.'/../trainings.json',json_encode($result));
+          header("Location: /admin");
+        }
+    }
+
     if (isset($_GET["save"]) && $_GET["save"] == 1) {
         if (count($_POST) > 0) {
           $json = array();
@@ -39,6 +62,16 @@
     echo file_get_contents('header.tpl');
 
     ?>
+
+    <style>
+    .banner {
+      margin:0 -30px;
+      margin-top:-20px;
+    }
+    .banner img {width:100%;}
+    .form {height:auto !important;}
+    textarea {display:block !important;width:100%;border-radius:3px;border:none;outline:none;padding:10px;margin-bottom:10px;}
+    </style>
 
     <header class="index-header">
         <div class="fixed-header "></div>
@@ -92,9 +125,8 @@
                   }
                 });
                 $.each(e, function(n,t) {
+                  console.log(t);
                   if (jQuery.inArray(t,exist) < 0) {
-                    console.log(t);
-                    console.log(exist);
                     $('<br />'+t+':<input type="hidden" name="title[]" value="'+t+'" /><textarea name="description[]"></textarea>').appendTo('#unfields');
                   }
                 })
@@ -108,6 +140,10 @@
                     <?php
                         $trainings = file_get_contents('../trainings.json');
                         $trainings = json_decode($trainings);
+                        // $trainings = (array) $trainings;
+                        if (empty($trainings)) {
+                          $trainings = array();
+                        }
                     ?>
                     <?php foreach ($trainings as $key => $val): ?>
                     <div class="fields" data-name="<?= $key;?>">
@@ -118,6 +154,19 @@
                     <?php endforeach; ?>
                     <div id="unfields"></div>
                   <input type="submit" id="button" value="Сохранить">
+                </form>
+              </div>
+            </div>
+          <?php elseif (isset($_GET['banner']) && $_GET['banner'] == 1): ?>
+            <div class="rates">
+              <div class="form">
+                <figure class="banner">
+                  <img src="/img/service-pack.jpg" />
+                </figure>
+                <br/>
+                <form method="post" action="/admin/?banner=1" enctype="multipart/form-data">
+                  <input type="file" name="file" />
+                  <input type="submit" id="button" value="Сохранить" />
                 </form>
               </div>
             </div>

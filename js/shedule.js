@@ -6,7 +6,7 @@ $(function() {
       $("p.select").each(function(n,e){
         t = $(e).text();
         if (data[t].length > 0)
-          $(e).prepend('<div class="popup" style="display:none"><b>'+t+'</b><p>'+data[t]+'</p></div>');
+          $(e).before('<div class="popup" style="display:none"><b>'+t+'</b><p>'+data[t]+'</p></div>');
       });
     });
 
@@ -23,7 +23,7 @@ $(function() {
 }), $(document).on("change", ".styler", function() {
     var e = $(this).val();
     if ("default" == e) $.each($("p.select"), function(t, e) {
-        $(e).parent().show()
+        $(e).parent().show();
     });
     else {
         new Array;
@@ -35,10 +35,9 @@ $(function() {
 
 $(document).on({
     mouseenter: function () {
-        $(this).find('.popup').show();
-        console.log('ok');
+        $(this).parent().find('.popup').show();
     },
     mouseleave: function () {
-        $(this).find('.popup').hide();
+        $(this).parent().find('.popup').hide();
     }
 }, "p.select");
