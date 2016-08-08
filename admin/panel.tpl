@@ -190,31 +190,41 @@ $(function(){
     });
   };
 
-  $(document).on('keypress','[contenteditable=true]',function(e){
-   var el = $(this);
-   if(e.keyCode==13){ //enter && shift
-
-    e.preventDefault(); //Prevent default browser behavior
-    if (window.getSelection) {
-        var selection = window.getSelection(),
-            range = selection.getRangeAt(0),
-            br = document.createElement("br"),
-            textNode = document.createTextNode("\u00a0"); //Passing " " directly will not end up being shown correctly
-        range.deleteContents();//required or not?
-        range.insertNode(br);
-        range.collapse(false);
-        range.insertNode(textNode);
-        range.selectNodeContents(textNode);
-
-        selection.removeAllRanges();
-        selection.addRange(range);
-        return false;
-    }
-
-     }
-  });
 });
 
+$(document).on('keypress','[contenteditable=true]',function(e){
+    var element = $(this);
+
+    if (e.keyCode === 13) {
+      e.preventDefault(); //Prevent default browser behavior
+      $.ajax({
+        type: "POST",
+        crossDomain: true,
+        url: "/admin/ajax.php",
+        dataType: "json",
+        jsonpCallback: '?',
+        data: {
+          'page': location.pathname.substring(1),
+          'action': 'edit',
+          'dom': element[0].localName,
+          'index': element.index(),
+          'new': element.html(),
+        }
+      }).done(function(){
+        element.attr('contenteditable','false');
+        element.removeClass('q1-admin-element-active');
+        $('.q1-admin-panel').removeClass('q1-admin-panel-active');
+        $('.q1-admin-bg').remove();
+        $('body').append('<div class="q1-admin-alert q1-admin-alert-success">Успешно</div>');
+        element.attr('data-old',$(element).text());
+
+        setTimeout(function(){
+          $('.q1-admin-alert').remove();
+        }, 2000);
+        return false;
+      });
+    }
+});
 
 
 $(document).on('click','*[data-editable="true"]',function(){
