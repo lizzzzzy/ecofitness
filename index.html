@@ -35,10 +35,26 @@
             <a href="#" class="close">x</a>
         </div>
     </div>
-    
-     <div id="form-container">
-        <div id="promo-modal" style="display:none"  class="modal">
-<img src="img/service-pack.jpg" alt="">
+
+     <div id="banner">
+        <div id="promo-modal" style="display:none;" class="modal-wind">
+          <a href="javascript://"><img src="img/service-pack.jpg" alt=""></a>
+        </div>
+        <div id="form-container">
+          <div id="banner-form" style="display:none;" class="modal-wind modal">
+              <p>Бронирование абонемента</p>
+              <p>Оставьте ваши данные и мы перезвоним вам в ближайшее время</p>
+              <form id="contact-form" name="contact-form" method="post" action="">
+                  <input type="text" placeholder="Имя" name="name" id="name">
+                  <input type="text" placeholder="E-mail (обязательно)" name="email" id="email">
+                  <input type="text" placeholder="Телефон (обязательно)" name="telephone" id="telephone">
+                  <textarea name="message" id="message">
+                      Заявка с баннера</textarea>
+                  <input type="submit" name="button" id="button" value="Отправить" />
+                  <input type="hidden" name="formname" value="reserv" />
+              </form>
+              <a href="#" class="close close-modal-wind">x</a>
+          </div>
         </div>
     </div>
 
@@ -80,7 +96,7 @@
                                         <a href="#" target="_blank" class="btn-social twitter disabled"></a>
                                     </div> -->
                       <video src="img/video/promo.ogv" controls="controls">
-   Элемент video не поддерживается вашим браузером. 
+   Элемент video не поддерживается вашим браузером.
    <a href="img/video/promo.ogv">Скачайте видео</a>.
 </video>
             </div>

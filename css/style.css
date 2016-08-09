@@ -1396,3 +1396,22 @@ only screen and (min-device-pixel-ratio: 1.5) {
   text-align:left;
   color:#444;
 }
+.modal-wind {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+}
+#promo-modal {
+  width:480px;
+}
+#promo-modal img {
+  width:100%;
+}
+.wind-bg {
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  cursor:pointer;
+}
