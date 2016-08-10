@@ -29,6 +29,7 @@
                 });
                 $('.close-modal-wind').on('click', function(e) {
                     $(this).parent().hide();
+                    $('.wind-bg').hide();
                     $.cookie('banner',1);
                 });
  });
