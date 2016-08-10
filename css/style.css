@@ -66,7 +66,8 @@ footer {
 .wrapper {
     width: 1200px;
     margin: 0 auto;
-    padding: 0 13px
+    padding: 0 13px;
+	text-align: center;
 }
 a.disabled {
     pointer-events: none
@@ -270,6 +271,7 @@ a.disabled {
     overflow: hidden;
     position: relative;
     width: inherit;
+	text-align: left;
 }
 .slides {
     height: inherit;
@@ -406,11 +408,12 @@ header .navigation .main-navigation ul li {
     margin-right: 30px;
     position: relative;
 }
-.video-wrapper {}
+.video-wrapper {	text-align: left;}
 video {
     width: 605px;
     height: 335px;
     margin-top: 12px;
+	float: left;
 }
 .main-navigation a {
     text-decoration: none;
@@ -495,7 +498,8 @@ header .about-us .promo-block .heading {
     padding-left: 37px;
     padding-top: 100px;
     min-height: 397px;
-    margin-top: 10px
+    margin-top: 10px;
+	text-align: left;
 }
 header .about-us .promo-block .heading p {
     color: #ffffff;
@@ -553,7 +557,8 @@ header .about-us .promo-block .social .facebook {
     padding-left: 174px;
     padding-right: 160px;
     background-repeat: no-repeat;
-    background-position: 30px 10px
+    background-position: 30px 10px;
+	text-align: left;
 }
 .reasons .why .reason p {
     color: #000000;
@@ -586,14 +591,15 @@ header .about-us .promo-block .social .facebook {
     background-image: url(../img/services.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 1485px
+    min-height: 1485px;
 }
 .services .service-menu {
     border: #ffffff solid 6px;
     border-radius: 4px;
     margin-top: 184px;
     margin-bottom: 0;
-    position: relative
+    position: relative;
+		text-align: left;
 }
 .services .service-menu .column-left {
     width: 50%;
@@ -774,6 +780,7 @@ header .about-us .promo-block .social .facebook {
 .massage>.btn-prices:hover .hover-price {
     display: inline-block !important;
 }
+
 .rates p {
     font-size: 36px;
     text-align: center
@@ -787,7 +794,9 @@ header .about-us .promo-block .social .facebook {
     background-color: #00ad5d;
     padding: 0 25px;
     font-size: 0;
-    margin-bottom: 78px
+    margin-bottom: 78px;
+    display: inline-block;
+	margin: 0 auto;
 }
 .rates .subscriptions p {
     color: #ffffff;
@@ -852,12 +861,12 @@ header .about-us .promo-block .social .facebook {
     margin-right: 0
 }
 .rates .special {
-    width: 880px;
     height: 445px;
     background-color: #00ad5d;
     margin: 0 auto;
     padding: 0 25px;
-    margin-top: 45px
+    margin-top: 45px;
+	display: inline-block;
 }
 .rates .special .special-card {
     float: left;
@@ -866,7 +875,7 @@ header .about-us .promo-block .social .facebook {
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 5px 51px rgba(0, 0, 0, 0.75);
-    margin-right: 74px;
+    margin-right: 70px;
     text-align: center;
     position: relative;
     top: -30px;
@@ -1145,7 +1154,7 @@ input[type="password"] {
     line-height: 24px;
 }
 .contacts {
-    padding-bottom: 30px
+    padding-bottom: 30px;
 }
 .contacts .map {
     position: relative;
@@ -1169,6 +1178,7 @@ input[type="password"] {
     background-position: top right;
     -webkit-background-size: 500px;
     background-size: 500px;
+			text-align: left;
 }
 .contacts .contact-info .contact-date {
     min-height: 670px
