@@ -71,7 +71,7 @@
     .banner img {width:100%;}
     .form {height:auto !important;}
     textarea {display:block !important;width:100%;border-radius:3px;border:none;outline:none;padding:10px;margin-bottom:10px;margin-top: 10px;height: 80px;}
-		.rates .form{width: 1200px;margin-top: 50px;}
+		.rates.activ .form{width: 1200px;margin-top: 50px;}
 		.fields{
 			font-weight: bold;
 		}
@@ -136,7 +136,7 @@
                 })
               });
             </script>
-            <div class="rates" style="text-align:center;">
+            <div class="rates activ" style="text-align:center;">
               <div class="form">
                 <p>Описание занятий</p>
                 <form method="post" action="/admin/?trainings=1">
