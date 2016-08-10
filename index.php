@@ -76,6 +76,22 @@ if ($auth->isAuth()) {
   $panel = '';
 }
 
+if ($auth->isAuth()) {
+  require_once ('lib/html.php');
+  $html = str_get_html($html);
+  $editable = $html->find('*[data-editable="true"]');
+
+  foreach ($editable as $key => $e) {
+    $html->find('*[data-editable="true"]',$key)->id = 'edit'.$key;
+  }
+
+  $hide = $html->find('*[data-hide="true"]');
+
+  foreach ($hide as $key => $h) {
+    $html->find('*[data-hide="true"]',$key)->id = 'hide'.$key;
+  }
+}
+
 $codes[] = '/<body>/';
 $values[] = '<body>'.$panel;
 

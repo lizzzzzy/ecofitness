@@ -65,7 +65,7 @@
 }
 .q1-admin-bg {
   position:fixed;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.2);
   z-index:10;
   top:0;
   left:0;
@@ -166,7 +166,33 @@
 .q1-admin-element-active {
   z-index:99999;
 }
-
+.card-hidden {
+  display:block !important;
+  position:relative;
+}
+.card-hidden:before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(100,100,100,0.6);
+  z-index:2;
+  border-radius:4px;
+}
+.card-hidden:after {
+  content:'Активировать';
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  background:#00ad5d;
+  padding:10px 20px;
+  color:#fff;
+  font-size:1rem;
+}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
@@ -174,6 +200,10 @@ $(function(){
   $('*[data-editable="true"]').addClass('q1-editable');
   $('*[data-editable="true"]').each(function(key,element){
     $(element).attr('data-old',$(element).html());
+  });
+
+  $('*[data-hide="true"]').each(function(key,element){
+    $(element).not('.card-hidden').prepend('<a href="javascript://" class="card-hide-action">Скрыть</a>');
   });
 
   if (location.pathname == '/schuedle') {
@@ -206,8 +236,7 @@ $(document).on('keypress','[contenteditable=true]',function(e){
         data: {
           'page': location.pathname.substring(1),
           'action': 'edit',
-          'dom': element[0].localName,
-          'index': element.index(),
+          'id': element[0].id,
           'new': element.html(),
         }
       }).done(function(){
@@ -226,6 +255,62 @@ $(document).on('keypress','[contenteditable=true]',function(e){
     }
 });
 
+
+$(document).on('click','.card-hidden',function(e){
+    var element = $(this);
+    console.log(element);
+    $.ajax({
+        type: "POST",
+        crossDomain: true,
+        url: "/admin/ajax.php",
+        dataType: "json",
+        jsonpCallback: '?',
+        data: {
+          'page': location.pathname.substring(1),
+          'action': 'hide',
+          'add': 0,
+          'id': element[0].id
+        }
+    }).done(function(){
+        element.removeClass('card-hidden');
+
+        $('body').append('<div class="q1-admin-alert q1-admin-alert-success">Успешно</div>');
+
+        setTimeout(function(){
+          $('.q1-admin-alert').remove();
+        }, 2000);
+        return false;
+      });
+});
+
+$(document).on('click','.card-hide-action',function(e){
+    var element = $(this);
+    var obj = $(this).parent();
+
+    $.ajax({
+        type: "POST",
+        crossDomain: true,
+        url: "/admin/ajax.php",
+        dataType: "json",
+        jsonpCallback: '?',
+        data: {
+          'page': location.pathname.substring(1),
+          'action': 'hide',
+          'add': 1,
+          'id': obj[0].id,
+        }
+    }).done(function(){
+        obj.addClass('card-hidden');
+        element.remove();
+
+        $('body').append('<div class="q1-admin-alert q1-admin-alert-success">Успешно</div>');
+
+        setTimeout(function(){
+          $('.q1-admin-alert').remove();
+        }, 2000);
+        return false;
+      });
+});
 
 $(document).on('click','*[data-editable="true"]',function(){
   var element = $(this);
@@ -264,8 +349,7 @@ $(document).on('click','.q1-btn-save',function(){
     data: {
       'page': location.pathname.substring(1),
       'action': 'edit',
-      'dom': element[0].localName,
-      'index': element.index(),
+      'id': element[0].id,
       'new': element.html(),
     }
   }).done(function(){

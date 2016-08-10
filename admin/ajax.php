@@ -50,12 +50,28 @@ if ($auth->isAuth() && count($_POST) > 0 ) {
       header('Content-Type: application/json');
       print json_encode(array('answer'=>'ok', 'html'=>trim($html)));
     }
+  } elseif ($action == 'hide') {
+    $dom = @$_POST['id'];
+    $index = substr($dom,4);
+    $add = @$_POST['add'];
+    $cl = $html->find('*[data-hide="true"]',$index)->class;
+    if ($add == 0) {
+      $cl = substr($cl, 0, -12);
+      $html->find('*[data-hide="true"]',$index)->class = $cl;
+    } else {
+      $cl = $cl.' card-hidden';
+      $html->find('*[data-hide="true"]',$index)->class = $cl;
+    }
+    header('Content-Type: application/json');
+    print json_encode(array('answer'=>'ok'));
+    unlink('../'.$page.'.html');
+    file_put_contents('../'.$page.'.html',$html);
   } else {
-    $dom = @$_POST['dom'];
-    $index = @$_POST['index'];
+    $dom = @$_POST['id'];
+    $index = substr($dom,4);
     $new = @$_POST['new'];
     $new = str_replace('>&nbsp;',' />',$new);
-    $html->find($dom,$index)->innertext = $new;
+    $html->find('*[data-editable="true"]',$index)->innertext = $new;
     header('Content-Type: application/json');
     print json_encode(array('answer'=>'ok'));
     unlink('../'.$page.'.html');

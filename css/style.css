@@ -1425,3 +1425,19 @@ only screen and (min-device-pixel-ratio: 1.5) {
   background:rgba(0,0,0,0.5);
   cursor:pointer;
 }
+.card-hidden {
+  display:none;
+}
+.card-hide-action {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: -29px;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  transform:translatex(-50%);
+  background:#555;
+  padding:5px 20px;
+  border-radius:2px 2px 0 0;
+}
