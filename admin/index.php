@@ -70,7 +70,11 @@
     }
     .banner img {width:100%;}
     .form {height:auto !important;}
-    textarea {display:block !important;width:100%;border-radius:3px;border:none;outline:none;padding:10px;margin-bottom:10px;}
+    textarea {display:block !important;width:100%;border-radius:3px;border:none;outline:none;padding:10px;margin-bottom:10px;margin-top: 10px;height: 80px;}
+		.rates .form{width: 1200px;margin-top: 50px;}
+		.fields{
+			font-weight: bold;
+		}
     </style>
 
     <header class="index-header">
