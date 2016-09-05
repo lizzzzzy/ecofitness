@@ -15,7 +15,9 @@
 
 
                 if (undefined == $.cookie('banner')) {
-                  $('#promo-modal').show().before('<div class="wind-bg"></div>');
+                  setTimeout(function(){
+                    $('#promo-modal').show().before('<div class="wind-bg"></div>');
+                  },10000); //тут секунды в милисекундах, через сколько окно появляется (баннер)
                 }
                 // attach modal close handler
                 $('.close').on('click', function(e) {
