@@ -782,7 +782,7 @@ header .about-us .promo-block .social .facebook {
 .services .btn-prices{
     line-height: 26px;
     height: 70px;
-z-index: 100;  
+z-index: 100;
 
 }
 .services .btn-m{    background-color: #3472b9;left: 14px; ;padding-top: 10px;}
@@ -1001,13 +1001,59 @@ input[type="password"] {
 .scheme a img {
     width: 100%;
 }
-.trainers {
-    background-image: url(../img/banner.jpg);
-    min-height: 1235px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center
+
+.trainers h2 {
+  position:absolute;
+  width:1174px;
+  background:rgba(4, 174, 95,0.9);
 }
+
+.trainers-slider {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.trainers-slider li {
+  list-style:none;
+}
+.trainers-photo:after {
+  content:'';
+  display:block;
+  clear:both;
+}
+.trainers-photo {
+  float:left;
+  width:750px;
+  text-align:left;
+}
+.trainers-photo img {
+  width:100%;
+}
+.trainers-descr {
+  font-family: "Raleway";
+  float:right;
+  width:424px;
+  background:#26b975;
+  color:#fff;
+  padding:110px 30px 0 30px;
+  text-align:left;
+  font-size:1.2em;
+  line-height:1.5em
+}
+.trainers-descr h3 {
+  color:#fff;
+  font-weight:100;
+  font-size:3em;
+  line-height:1.2em;
+}
+.trainers-descr h4 {
+  font-weight:normal;
+  font-size:1.2em;
+}
+.trainers-descr p {
+  padding-bottom:5px;
+}
+
 .schuedle {
     padding-bottom: 80px;
     text-align: center
