@@ -10,7 +10,12 @@
     font-family: 'Raleway';
     font-weight: normal;
     src: url('fonts/raleway/Raleway-Regular.ttf')
-}
+}  
+@font-face {
+    font-family: 'Raleway';
+    font-weight: lighter;
+    src: url('fonts/raleway/Raleway-ExtraLight.ttf')
+}  
 @font-face {
     font-family: 'Raleway';
     font-weight: bold;
@@ -67,7 +72,8 @@ footer {
     width: 1200px;
     margin: 0 auto;
     padding: 0 13px;
-	text-align: center;
+    text-align: center;
+    position: relative;
 }
 a.disabled {
     pointer-events: none
@@ -271,7 +277,7 @@ a.disabled {
     overflow: hidden;
     position: relative;
     width: inherit;
-	text-align: left;
+    text-align: left;
 }
 .slides {
     height: inherit;
@@ -408,12 +414,12 @@ header .navigation .main-navigation ul li {
     margin-right: 30px;
     position: relative;
 }
-.video-wrapper {	text-align: left;}
+.video-wrapper {    text-align: left;}
 video {
     width: 605px;
     height: 335px;
     margin-top: 12px;
-	float: left;
+    float: left;
 }
 .main-navigation a {
     text-decoration: none;
@@ -499,7 +505,7 @@ header .about-us .promo-block .heading {
     padding-top: 100px;
     min-height: 397px;
     margin-top: 10px;
-	text-align: left;
+    text-align: left;
 }
 header .about-us .promo-block .heading p {
     color: #ffffff;
@@ -558,7 +564,7 @@ header .about-us .promo-block .social .facebook {
     padding-right: 160px;
     background-repeat: no-repeat;
     background-position: 30px 10px;
-	text-align: left;
+    text-align: left;
 }
 .reasons .why .reason p {
     color: #000000;
@@ -599,7 +605,7 @@ header .about-us .promo-block .social .facebook {
     margin-top: 184px;
     margin-bottom: 0;
     position: relative;
-		text-align: left;
+        text-align: left;
 }
 .services .service-menu .column-left {
     width: 50%;
@@ -729,11 +735,11 @@ header .about-us .promo-block .social .facebook {
     background-color: white;
 }
 .services .service-menu .column-right .massage .hover-price-n{
-	right: -310px;
+    right: -310px;
 }
 .services .service-menu .column-right .massage .hover-price-n .card-title-green
 {
-	min-height: 20px;
+    min-height: 20px;
     border-left: 10px solid white;
 }
 .services .service-menu .column-right .massage .hover-price .number {
@@ -807,7 +813,7 @@ z-index: 100;
     font-size: 0;
     margin-bottom: 78px;
     display: inline-block;
-	margin: 0 auto;
+    margin: 0 auto;
 }
 .rates .subscriptions p {
     color: #ffffff;
@@ -877,7 +883,7 @@ z-index: 100;
     margin: 0 auto;
     padding: 0 25px 0 25px;
     margin-top: 45px;
-	display: inline-block;
+    display: inline-block;
 }
 .rates .special .special-card {
     float: left;
@@ -1012,6 +1018,7 @@ input[type="password"] {
   list-style:none;
   margin:0;
   padding:0;
+  background:#26b975;
 }
 .trainers-slider li {
   list-style:none;
@@ -1025,6 +1032,7 @@ input[type="password"] {
   float:left;
   width:750px;
   text-align:left;
+  font-size:0;
 }
 .trainers-photo img {
   width:100%;
@@ -1038,22 +1046,94 @@ input[type="password"] {
   padding:110px 30px 0 30px;
   text-align:left;
   font-size:1.2em;
-  line-height:1.5em
+  line-height:1.5em;
+  height: auto;
 }
 .trainers-descr h3 {
-  color:#fff;
-  font-weight:100;
-  font-size:3em;
-  line-height:1.2em;
+color: #fff;
+    font-weight: 100;
+    font-size: 2em;
+    line-height: 1.1em;
+    /* padding: 20px; */
+    padding-top: 24px;
+    padding-right: 59px;
+padding-bottom: 16px;
+letter-spacing: 3px;
 }
 .trainers-descr h4 {
   font-weight:normal;
   font-size:1.2em;
+  margin-top:16px;
+  letter-spacing:0.4px;
 }
 .trainers-descr p {
   padding-bottom:5px;
+  line-height:1.6em;
+  letter-spacing:0.4px;
+}
+.arrow{
+    bottom: 10px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    transition: all 1s;
+     border: 2px solid white;
+    border-radius: 50%;
+}
+.arrow:hover{
+width: 55px;
+height: 55px;
 }
 
+.arrow:hover.right-arrow:before, .arrow:hover.right-arrow:after, .arrow:hover .left-arrow:before, .arrow:hover.left-arrow:after{
+    height: 25px;
+}
+
+.left-arrow{
+    left: 30px;
+}
+.right-arrow{
+    right: 30px;
+
+}
+.right-arrow:before,.right-arrow:after,.left-arrow:before,.left-arrow:after{
+    content: '';
+width: 2px;
+height: 20px;
+display: block;
+background-color: white;
+
+position: absolute;
+}
+
+.right-arrow:before,.right-arrow:after{
+    right: 43%;
+}
+.right-arrow:before{
+
+transform: rotate(-45deg);
+top: 6px;
+
+}
+.right-arrow:after{
+    transform: rotate(45deg);
+    bottom: 6px;
+}
+
+.left-arrow:before,.left-arrow:after{
+    left: 43%;
+}
+.left-arrow:before{
+
+transform: rotate(45deg);
+top: 6px;
+
+}
+.left-arrow:after{
+    transform: rotate(-45deg);
+    bottom: 6px;
+
+}
 .schuedle {
     padding-bottom: 80px;
     text-align: center
@@ -1236,7 +1316,7 @@ input[type="password"] {
     background-position: top right;
     -webkit-background-size: 500px;
     background-size: 500px;
-			text-align: left;
+            text-align: left;
 }
 .contacts .contact-info .contact-date {
     min-height: 670px
@@ -1445,13 +1525,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
       height:auto !important;
       border-radius:5px;
       margin-left:-10px;
-	    position: fixed;
+        position: fixed;
     top: 50%;
     left: 50%;
-	margin-top: -100px;
+    margin-top: -100px;
     margin-left: -250px;
     width: 500px;
-	min-height: 200px;
+    min-height: 200px;
 }
 /*
 .popup:before {
@@ -1509,5 +1589,5 @@ only screen and (min-device-pixel-ratio: 1.5) {
   border-radius:2px 2px 0 0;
 }
 textarea{
-	height: 150px;
+    height: 150px;
 }
