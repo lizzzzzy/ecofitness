@@ -10,12 +10,12 @@
     font-family: 'Raleway';
     font-weight: normal;
     src: url('fonts/raleway/Raleway-Regular.ttf')
-}  
+}
 @font-face {
     font-family: 'Raleway';
     font-weight: lighter;
     src: url('fonts/raleway/Raleway-ExtraLight.ttf')
-}  
+}
 @font-face {
     font-family: 'Raleway';
     font-weight: bold;
@@ -1012,6 +1012,7 @@ input[type="password"] {
   position:absolute;
   width:1174px;
   background:rgba(4, 174, 95,0.9);
+  z-index: 9999;
 }
 
 .trainers-slider {
@@ -1022,6 +1023,9 @@ input[type="password"] {
 }
 .trainers-slider li {
   list-style:none;
+  transition: all 0.6s linear;
+  display:none;
+  opacity:0;
 }
 .trainers-slider li:after {
   content:'';
@@ -1070,6 +1074,10 @@ letter-spacing: 3px;
   padding-bottom:5px;
   line-height:1.6em;
   letter-spacing:0.4px;
+}
+li.visible {
+  display:block;
+  opacity:1;
 }
 .arrow{
     bottom: 10px;
