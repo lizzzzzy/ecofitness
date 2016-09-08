@@ -1079,6 +1079,7 @@ letter-spacing: 3px;
     transition: all 1s;
      border: 2px solid white;
     border-radius: 50%;
+    position: absolute;
 }
 .arrow:hover{
 width: 55px;
