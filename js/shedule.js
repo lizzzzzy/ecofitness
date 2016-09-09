@@ -15,11 +15,11 @@ $(function() {
         t = $(a).text(), -1 == jQuery.inArray(t, e) && $('<option value="' + t + '">' + t + "</option>").appendTo(".styler"), e.push(t)
     });
     /* Ховеры колонок */
-    $('.day').hover(function(){
-      $('.day').not(this).css('opacity','0.1');
-    },function(){
-      $('.day').not(this).css('opacity','1');
-    });
+    // $('.day').hover(function(){
+    //   $('.day').not(this).css('opacity','0.1');
+    // },function(){
+    //   $('.day').not(this).css('opacity','1');
+    // });
 }), $(document).on("change", ".styler", function() {
     var e = $(this).val();
     if ("default" == e) $.each($("p.select"), function(t, e) {
@@ -41,3 +41,8 @@ $(document).on({
         $(this).parent().find('.popup').hide();
     }
 }, "p.select");
+
+$(document).on('click','.trainer',function(){
+  var trainer = $(this).text();
+  window.location.href = '/trainers?name='+trainer;
+});
