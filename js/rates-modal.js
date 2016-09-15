@@ -40,5 +40,10 @@
                     e.preventDefault();
                     $('#seventh-modal').modal().open();
                 });
+		   
+		       $('body').on('click', '.first-trainer', function(e) {
+                    e.preventDefault();
+                    $('#first-trainer').modal().open();
+                });
            
                        });
