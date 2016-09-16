@@ -153,6 +153,12 @@
 	<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="js/slider.js"></script>
 				<script type="text/javascript" src="js/rates-modal.js"></script>
+				<script>
+				$(function(){
+					var name = decodeURI(window.location.search.substring(6));
+					$('.heading:contains('+name+')').parent().modal().open();
+				});
+				</script>
 <!--
 	        <script>
             $(document).ready(function() {
