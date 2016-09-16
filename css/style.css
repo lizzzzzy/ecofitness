@@ -1,3 +1,4 @@
+
 @font-face {
 	font-family: 'PTSans';
 	src: url('fonts/ptsans/PT_Sans-Web-Regular.ttf')
@@ -1058,7 +1059,6 @@ input[type="password"] {
 	font-weight: 100;
 	font-size: 1.7em !important;
 	line-height: 1.2em;
-	letter-spacing: 3px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -1074,11 +1074,13 @@ input[type="password"] {
 	font-size: 1.4em;
 	margin-top: 16px;
 	letter-spacing: 0.4px;
+	padding: 0px 40px 0px;
 }
 .click p {
 	padding-bottom: 5px;
 	line-height: 1.6em;
 	letter-spacing: 0.4px;
+	padding: 0px 40px 0px;
 }
 .trainers-descr img {
 	width: 100%;
@@ -1089,13 +1091,22 @@ li.visible {
 }
 .click {
 	width: 600px;
-	padding: 20px 40px 30px;
 	margin: 100px auto;
 	background-color: #e2eef1;
 	z-index: 105;
 	position: relative;
 	background-color: #00ad5d;
 	color: white;
+	padding-bottom: 30px;
+}
+.click .heading{
+	font-size: 35px;
+	background-color: white;
+	color: #00ad5d;
+	padding: 15px 40px 20px;
+	margin-bottom: 30px;
+	font-weight: normal;
+	line-height: 37px;
 }
 .arrow {
 	bottom: 42%;
