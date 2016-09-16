@@ -55,7 +55,7 @@
 
           $data = json_encode($_POST);
 
-          if (isset($_FILES['photo']) && isset($_FILES['photo']['tmp_name'])) {
+          if (isset($_FILES['photo']) && !empty($_FILES['photo']['tmp_name'])) {
             if (file_exists('../img/coach/'.$id.'.jpg')) {
               unlink('../img/coach/'.$id.'.jpg');
             }
@@ -83,7 +83,8 @@
             $data->success = @$_POST['success'];
             $data = json_encode($data);
             unlink('../data/'.$id.'.json');
-            if (isset($_FILES['photo']) && isset($_FILES['photo']['tmp_name'])) {
+
+            if (!empty($_FILES['photo']) && !empty($_FILES['photo']['tmp_name'])) {
               if (file_exists('../img/coach/'.$id.'.jpg')) {
                 unlink('../img/coach/'.$id.'.jpg');
               }
