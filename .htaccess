@@ -2,10 +2,14 @@ DirectoryIndex index.php
 
 RewriteEngine on
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?page=$1 [L]
 
-<Files config.json> 
+<Files config.json>
   deny from all
 </Files>

@@ -43,6 +43,63 @@
         }
     }
 
+    if (isset($_GET["addcoach"]) && $_GET["addcoach"] == 1) {
+      if (count($_POST) > 0) {
+          $files = glob('../data/*.json');
+          $temp = array();
+          foreach ($files as $f) {
+            $temp[] = basename($f,'.json');
+          }
+          sort($temp);
+          $id = end($temp) + 1;
+
+          $data = json_encode($_POST);
+
+          if (isset($_FILES['photo']) && isset($_FILES['photo']['tmp_name'])) {
+            if (file_exists('../img/coach/'.$id.'.jpg')) {
+              unlink('../img/coach/'.$id.'.jpg');
+            }
+            move_uploaded_file($_FILES['photo']['tmp_name'],'../img/coach/'.$id.'.jpg');
+          }
+          if (file_put_contents('../data/'.$id.'.json',$data)) {
+            header('Location: /admin?message=Тренер успешно добавлен');
+            die();
+          } else {
+            header('Location: /admin?message=Произошла ошибка при сохранение :(');
+            die();
+          };
+      }
+    }
+    if (isset($_GET["editcoach"]) && $_GET["editcoach"] == 1) {
+        if (count($_POST) > 0) {
+          $id = $_POST['id'];
+          if (file_exists('../data/'.$id.'.json')) {
+            $data = json_decode(file_get_contents('../data/'.$id.'.json'));
+            $data->title = @$_POST['title'];
+            $data->position = @$_POST['position'];
+            $data->year = @$_POST['year'];
+            $data->learn = @$_POST['learn'];
+            $data->direction = @$_POST['direction'];
+            $data->success = @$_POST['success'];
+            $data = json_encode($data);
+            unlink('../data/'.$id.'.json');
+            if (isset($_FILES['photo']) && isset($_FILES['photo']['tmp_name'])) {
+              if (file_exists('../img/coach/'.$id.'.jpg')) {
+                unlink('../img/coach/'.$id.'.jpg');
+              }
+              move_uploaded_file($_FILES['photo']['tmp_name'],'../img/coach/'.$id.'.jpg');
+            }
+            if (file_put_contents('../data/'.$id.'.json',$data)) {
+              header('Location: /admin?message=Тренер успешно отредактирован');
+              die();
+            } else {
+              header('Location: /admin?message=Произошла ошибка при сохранение :(');
+              die();
+            };
+          }
+        }
+    }
+
     if (isset($_GET["save"]) && $_GET["save"] == 1) {
         if (count($_POST) > 0) {
           $json = array();
@@ -75,6 +132,57 @@
 		.fields{
 			font-weight: bold;
 		}
+    .admin-coaches:after {
+      content:'';
+      display:block;
+      clear:both;
+    }
+    .admin-coach {
+      float:left;
+      width:400px;
+      margin:20px;
+      padding:20px;
+      background:rgba(240,240,240,0.95);
+      border-radius:3px;
+      overflow:hidden;
+    }
+    .admin-coach input[type="text"] {
+      background:#fff;
+      border:none;
+      outline:none;
+      width:100%;
+      padding:10px;
+      margin:5px 0;
+      border-radius:3px;
+    }
+    .admin-coach label {
+      display:block;
+      margin-bottom:10px;
+      font-weight:bold;
+    }
+    .admin-coach .heading {
+      position:absolute;
+      font-size:1.2em;
+      background:#00ad5d;
+      color:#fff;
+      margin-top:-30px;
+      margin-left:100px;
+      padding:10px;
+    }
+    .admin-coach .btn {
+      width:100%;
+      background:#00ad5d;
+      border:none;
+      border-radius:3px;
+    }
+    .alert {
+      background:#00ad5d;
+      padding:20px;
+      color:#fff;
+      margin:0 auto;
+      width:500px;
+      text-align:center;
+    }
     </style>
 
     <header class="index-header">
@@ -87,7 +195,8 @@
                     <ul>
                         <li class="menu-item"><a href="/admin">Настройки</a></li>
                         <li class="menu-item"><a href="/admin?banner=1">Баннер</a></li>
-                        <li class="menu-item"><a href="/admin?trainings=1">Тренировки</a></li>
+                        <li class="menu-item"><a href="/admin?trainings=1">Занятия</a></li>
+                        <li class="menu-item"><a href="/admin?coach=1">Тренеры</a></li>
                         <li class="menu-item"><a href="/admin?logout=1">Выйти</a></li>
                     </ul>
                 </nav>
@@ -108,6 +217,9 @@
             </div>
           </div>
         <?php else: ?>
+          <?php if (isset($_GET['message'])):?>
+          <div class="alert"><?=$_GET['message'];?></div>
+          <?php endif;?>
           <?php if (isset($_GET['trainings']) && $_GET['trainings'] == 1): ?>
             <script>
               $.ajax({
@@ -173,6 +285,87 @@
                   <input type="submit" id="button" value="Сохранить" />
                 </form>
               </div>
+            </div>
+          <?php elseif (isset($_GET['coach']) && $_GET['coach'] == 1): ?>
+            <div class="admin-coaches">
+                <div class="admin-coach">
+                  <form action="/admin/?addcoach=1" method="POST" enctype="multipart/form-data">
+                    <div class="heading">Новый тренер</div>
+                    <label>
+                      ФИО:<br/>
+                    <input type="text" name="title" required="required" />
+                    </label>
+                    <label>
+                      Виды тренировок:
+                    <textarea name="position" required="required"></textarea>
+                    </label>
+                    <label>
+                      Опыт работы:<br/>
+                    <input type="text" name="year" />
+                    </label>
+                    <label>
+                      Фотография:<br/>
+                    <input type="file" name="photo" />
+                    </label>
+                    <label>
+                      Направление работы:
+                    <textarea name="direction"></textarea>
+                    </label>
+                    <label>
+                      Образование:
+                    <textarea name="learn"></textarea>
+                    </label>
+                    <label>
+                      Достижения:
+                    <textarea name="success"></textarea>
+                    </label>
+                    <button class="btn" type="submit">Добавить тренера</button>
+                  </form>
+                </div>
+                <?php
+                $data = glob('../data/*.json');
+                foreach ($data as $key => $trainer) {
+                  $id = basename($trainer,'.json');
+                  $image = $id.'.jpg';
+                  $t = json_decode(file_get_contents($trainer));
+                  ?>
+                  <div class="admin-coach">
+                    <form action="/admin/?editcoach=1" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="<?=$id?>" />
+                      <label>
+                        ФИО:<br/>
+                      <input type="text" name="title" required="required" value="<?=$t->title?>" />
+                      </label>
+                      <label>
+                        Виды тренировок:
+                      <textarea name="position" required="required"><?=$t->position?></textarea>
+                      </label>
+                      <label>
+                        Направление работы:
+                      <textarea name="direction"><?=$t->direction?></textarea>
+                      </label>
+                      <label>
+                        Опыт работы:<br/>
+                      <input type="text" name="year" value="<?=$t->year?>" />
+                      </label>
+                      <label>
+                        Фотография:<br/>
+                      <input type="file" name="photo" />
+                      </label>
+                      <label>
+                        Образование:
+                      <textarea name="learn"><?=$t->learn?></textarea>
+                      </label>
+                      <label>
+                        Достижения:
+                      <textarea name="success"><?=$t->success?></textarea>
+                      </label>
+                      <button class="btn" type="submit">Сохранить</button>
+                    </form>
+                  </div>
+                  <?
+                }
+                ?>
             </div>
           <?php else: ?>
           <div class="rates">
